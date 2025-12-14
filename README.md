@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧳 Travel Buddy & Meetup
 
-## Getting Started
+## 1. Project Overview
+Travel Buddy & Meetup Platform aims to create meaningful connections among travelers by helping them find compatible companions for upcoming trips. This subscription-based platform allows users to discover others heading to similar destinations and plan meetups, transforming solo journeys into shared adventures. The platform combines social networking and travel planning to enhance shared experiences and build a vibrant community of explorers.
 
-First, run the development server:
+This project blends social interaction and travel discovery, empowering users to explore the world together.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 2. Objectives
+- Build a social-travel web platform for connecting travelers.
+- Enable trip sharing, traveler matching.
+- Allow users to create detailed travel profiles and itineraries.
+- Provide a secure and engaging UI/UX with modern features.
+- Implement role-based authentication and persistence.
+
+## 3. Core Features Breakdown
+
+### 3.1 User Authentication & Roles
+- **Register / Login**:
+  - Email & Password
+- **Roles**:
+  - **User**: Can create travel plans, match with others.
+  - **Admin**: Can manage users, travel plans, and content.
+- **Security**: JWT-based Auth, secure password hashing.
+
+### 3.2 User Profile Management (CRUD)
+- **Create & Edit Profile**:
+  - Full Name
+  - Profile Image (via Cloudinary/ImgBB)
+  - Bio / About
+  - Travel Interests (e.g., hiking, food tours, photography)
+  - Visited Countries
+  - Current Location
+- **Public View**: Users can view others’ profiles.
+
+### 3.3 Travel Plan Management (CRUD)
+- **Manage Plans**:
+  - Destination (country/city)
+  - Start & End Dates
+  - Budget Range
+  - Travel Type (Solo, Family, Friends)
+  - Short description or itinerary
+- **Visibility**: Plans are visible to others for matchmaking & discovery.
+
+### 3.4 Search & Matching System
+- **Search Criteria**:
+  - Destination
+  - Date Range
+  - Interests
+
+### 3.5 Review & Rating System
+- **Post-Trip**:
+> **Note:** User can give each other a review after the trip is completed. User also can edit or delete the review.
+  - Leave a rating (1–5 stars).
+  - Write a detailed review.
+- **Trust**: Display average rating and recent reviews on profile pages.
+
+### 3.6 Payment Integration
+- **Premium Features**:
+  - Subscription plans (Monthly/Yearly) for using this platform.
+  - Verified Badge purchase after the subscription.
+- **Payment Gateways**:
+  - Integration with Stripe / SSLCommerz / any other payment gateway.
+
+## 4. Pages & Functional Requirements
+> **Note:** The pages listed below are examples to guide implementation. You must add additional pages and features as needed to meet all project requirements and create a complete, functional platform.
+
+### 4.1 Navbar
+- **When Logged Out**:
+  - Logo (links to Home)
+  - Explore Travelers
+  - Find Travel Buddy
+  - Login
+  - Register
+- **When Logged In (User)**:
+  - Logo (links to Home)
+  - Explore Travelers
+  - My Travel Plans
+  - Profile
+  - Logout
+- **When Logged In (Admin)**:
+  - Logo (links to Home)
+  - Admin Dashboard
+  - Manage Users
+  - Manage Travel Plans
+  - Profile
+  - Logout
+
+> **Note:** Feel free to add other navigation options as needed.
+
+### 4.2 Authentication Pages
+- **`/register`**: Sign up with default role User.
+- **`/login`**: Standard secure login.
+
+### 4.3 Home / Landing Page (`/`)
+- Landing page with top destinations and "Find Travel Buddies" CTA.
+- Logged-in users see recommended matches.
+- **How It Works**: Simple 3-step guide (Sign up, Create Plan, Find Buddy).
+- **Testimonials**: Success stories from travelers who found companions.
+> **Note:** Must have a minimum of 6 sections on the home page. Add other necessary sections as needed (e.g., Popular Destinations, Top-Rated Travelers, Why Choose Us, Travel Categories).
+
+### 4.4 Profile Page (`/profile/[id]`)
+- User info, visited countries, upcoming plans, reviews.
+- Actions: Edit own profile.
+
+### 4.5 Dashboard (`/dashboard`)
+- **For Users**: Overview of upcoming travel plans, Matched travelers.
+- **For Admin**: User Management, Travel Plan Management, Activity Management.
+
+### 4.6 Travel Plans Page (`/travel-plans`)
+- List user plans. Add/Edit/Delete buttons.
+- **Add Plan (`/travel-plans/add`)**: Form for new plan details.
+
+### 4.7 Search & Match Page (`/explore`)
+- Inputs: Destination, Date, Travel Type.
+- Results: Dynamic list of matched profiles.
+
+### 4.8 Travel Plan Details Page (`/travel-plans/[id]`)
+- Full itinerary, budget, and travel preferences.
+- Host profile summary.
+- **Action**: "Request to Join" button.
+
+
+## 5. Optional Features
+| Feature | Description |
+| :--- | :--- |
+| 📍 Map Integration | Show nearby travelers using Google Maps API |
+| 📨 Notifications | In-app or push notifications |
+| 📸 Media Sharing | Allow users to share trip photos |
+
+## 6. Folder & API Structure
+> **Note:** The folder structure below is a suggested starting point to organize your code. You can modify the structure add new folders or reorganize as needed to fit your implementation approach.
+
+### 🗂 Folder Structure
+```
+frontend/
+ ├── app/
+ │   ├── (auth)/login, register
+ │   ├── (user)/profile, travel-plans
+ │   ├── components/
+ │   ├── utils/
+ │   └── styles/
+backend/
+ ├── src/
+ │   ├── modules/
+ │   │   ├── users/
+ │   │   ├── travelPlans/
+ │   │   ├── reviews/
+ │   │   ├── payments/
+ │   └── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
