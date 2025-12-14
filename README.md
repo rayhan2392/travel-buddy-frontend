@@ -1,151 +1,312 @@
-# 🧳 Travel Buddy & Meetup
+# 🧳 Travel Buddy - Frontend
 
-## 1. Project Overview
-Travel Buddy & Meetup Platform aims to create meaningful connections among travelers by helping them find compatible companions for upcoming trips. This subscription-based platform allows users to discover others heading to similar destinations and plan meetups, transforming solo journeys into shared adventures. The platform combines social networking and travel planning to enhance shared experiences and build a vibrant community of explorers.
+A modern, feature-rich travel companion platform built with Next.js 16 and TypeScript. Connect with fellow travelers, discover new destinations, and plan your next adventure together.
 
-This project blends social interaction and travel discovery, empowering users to explore the world together.
+## ✨ Features
 
-## 2. Objectives
-- Build a social-travel web platform for connecting travelers.
-- Enable trip sharing, traveler matching.
-- Allow users to create detailed travel profiles and itineraries.
-- Provide a secure and engaging UI/UX with modern features.
-- Implement role-based authentication and persistence.
+### 🔐 Authentication & Authorization
 
-## 3. Core Features Breakdown
+- Secure JWT-based authentication
+- Role-based access control (User, Admin)
+- Protected routes and API calls
+- Persistent user sessions with cookies
 
-### 3.1 User Authentication & Roles
-- **Register / Login**:
-  - Email & Password
-- **Roles**:
-  - **User**: Can create travel plans, match with others.
-  - **Admin**: Can manage users, travel plans, and content.
-- **Security**: JWT-based Auth, secure password hashing.
+### 👤 User Management
 
-### 3.2 User Profile Management (CRUD)
-- **Create & Edit Profile**:
-  - Full Name
-  - Profile Image (via Cloudinary/ImgBB)
-  - Bio / About
-  - Travel Interests (e.g., hiking, food tours, photography)
-  - Visited Countries
-  - Current Location
-- **Public View**: Users can view others’ profiles.
+- Comprehensive user profiles with avatars
+- Bio, interests, and travel preferences
+- Visited countries tracking
+- Rating and review system
+- Profile editing and customization
 
-### 3.3 Travel Plan Management (CRUD)
-- **Manage Plans**:
-  - Destination (country/city)
-  - Start & End Dates
-  - Budget Range
-  - Travel Type (Solo, Family, Friends)
-  - Short description or itinerary
-- **Visibility**: Plans are visible to others for matchmaking & discovery.
+### 🗺️ Travel Planning
 
-### 3.4 Search & Matching System
-- **Search Criteria**:
-  - Destination
-  - Date Range
-  - Interests
+- Create and manage travel plans
+- Destination, dates, and budget configuration
+- Travel type categorization (Solo, Family, Friends)
+- Rich itinerary descriptions
+- Plan visibility controls
 
-### 3.5 Review & Rating System
-- **Post-Trip**:
-> **Note:** User can give each other a review after the trip is completed. User also can edit or delete the review.
-  - Leave a rating (1–5 stars).
-  - Write a detailed review.
-- **Trust**: Display average rating and recent reviews on profile pages.
+### 🔍 Discovery & Matching
 
-### 3.6 Payment Integration
-- **Premium Features**:
-  - Subscription plans (Monthly/Yearly) for using this platform.
-  - Verified Badge purchase after the subscription.
-- **Payment Gateways**:
-  - Integration with Stripe / SSLCommerz / any other payment gateway.
+- Advanced search filters (destination, dates, interests)
+- Smart travel buddy matching
+- User discovery and exploration
+- Real-time plan browsing
 
-## 4. Pages & Functional Requirements
-> **Note:** The pages listed below are examples to guide implementation. You must add additional pages and features as needed to meet all project requirements and create a complete, functional platform.
+### ⭐ Reviews & Ratings
 
-### 4.1 Navbar
-- **When Logged Out**:
-  - Logo (links to Home)
-  - Explore Travelers
-  - Find Travel Buddy
-  - Login
-  - Register
-- **When Logged In (User)**:
-  - Logo (links to Home)
-  - Explore Travelers
-  - My Travel Plans
-  - Profile
-  - Logout
-- **When Logged In (Admin)**:
-  - Logo (links to Home)
-  - Admin Dashboard
-  - Manage Users
-  - Manage Travel Plans
-  - Profile
-  - Logout
+- Post-trip review system
+- Star ratings (1-5)
+- Review management (edit/delete)
+- Average rating display on profiles
 
-> **Note:** Feel free to add other navigation options as needed.
+### 👨‍💼 Admin Dashboard
 
-### 4.2 Authentication Pages
-- **`/register`**: Sign up with default role User.
-- **`/login`**: Standard secure login.
+- User management interface
+- Travel plan oversight
+- System statistics and analytics
+- Content moderation tools
 
-### 4.3 Home / Landing Page (`/`)
-- Landing page with top destinations and "Find Travel Buddies" CTA.
-- Logged-in users see recommended matches.
-- **How It Works**: Simple 3-step guide (Sign up, Create Plan, Find Buddy).
-- **Testimonials**: Success stories from travelers who found companions.
-> **Note:** Must have a minimum of 6 sections on the home page. Add other necessary sections as needed (e.g., Popular Destinations, Top-Rated Travelers, Why Choose Us, Travel Categories).
+### 🎨 Modern UI/UX
 
-### 4.4 Profile Page (`/profile/[id]`)
-- User info, visited countries, upcoming plans, reviews.
-- Actions: Edit own profile.
+- Responsive design for all devices
+- Dark mode support
+- Smooth animations and transitions
+- Skeleton loading states
+- Toast notifications
+- Custom gradient themes
+- Shadcn/ui component library
+- Tailwind CSS styling
 
-### 4.5 Dashboard (`/dashboard`)
-- **For Users**: Overview of upcoming travel plans, Matched travelers.
-- **For Admin**: User Management, Travel Plan Management, Activity Management.
+## 🛠️ Technologies
 
-### 4.6 Travel Plans Page (`/travel-plans`)
-- List user plans. Add/Edit/Delete buttons.
-- **Add Plan (`/travel-plans/add`)**: Form for new plan details.
+### Core
 
-### 4.7 Search & Match Page (`/explore`)
-- Inputs: Destination, Date, Travel Type.
-- Results: Dynamic list of matched profiles.
+- **Next.js 16.0.8** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **React 19** - UI library
+- **Turbopack** - Fast bundler
 
-### 4.8 Travel Plan Details Page (`/travel-plans/[id]`)
-- Full itinerary, budget, and travel preferences.
-- Host profile summary.
-- **Action**: "Request to Join" button.
+### State Management & Data Fetching
 
+- **TanStack Query v5** - Server state management
+- **Axios** - HTTP client
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
 
-## 5. Optional Features
-| Feature | Description |
-| :--- | :--- |
-| 📍 Map Integration | Show nearby travelers using Google Maps API |
-| 📨 Notifications | In-app or push notifications |
-| 📸 Media Sharing | Allow users to share trip photos |
+### UI Components & Styling
 
-## 6. Folder & API Structure
-> **Note:** The folder structure below is a suggested starting point to organize your code. You can modify the structure add new folders or reorganize as needed to fit your implementation approach.
+- **Shadcn/ui** - Accessible component library
+- **Tailwind CSS v4** - Utility-first CSS
+- **Lucide React** - Icon library
+- **Sonner** - Toast notifications
+- **Radix UI** - Unstyled, accessible components
 
-### 🗂 Folder Structure
-```
-frontend/
- ├── app/
- │   ├── (auth)/login, register
- │   ├── (user)/profile, travel-plans
- │   ├── components/
- │   ├── utils/
- │   └── styles/
-backend/
- ├── src/
- │   ├── modules/
- │   │   ├── users/
- │   │   ├── travelPlans/
- │   │   ├── reviews/
- │   │   ├── payments/
- │   └── ...
+### Development Tools
+
+- **ESLint** - Code linting
+- **TypeScript ESLint** - TS-specific linting
+- **PostCSS** - CSS transformations
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Git
+
+### Setup Steps
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/rayhan2392/travel-buddy-frontend.git
+cd travel-buddy-frontend
 ```
 
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Configure environment variables**
+
+Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
+# Add other environment variables as needed
+```
+
+4. **Run development server**
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:3000`
+
+## 🚀 Available Scripts
+
+```bash
+# Start development server with Turbopack
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Run ESLint
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+travel-buddy-frontend/
+├── src/
+│   ├── app/                      # Next.js App Router pages
+│   │   ├── (auth)/              # Authentication routes
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   ├── admin/               # Admin dashboard routes
+│   │   │   ├── dashboard/
+│   │   │   ├── users/
+│   │   │   └── travel-plans/
+│   │   ├── dashboard/           # User dashboard
+│   │   ├── explore/             # User discovery
+│   │   ├── find-buddy/          # Travel buddy search
+│   │   ├── my-plans/            # User's travel plans
+│   │   ├── past-trips/          # Completed trips
+│   │   ├── profile/             # Profile management
+│   │   ├── reviews/             # Review system
+│   │   ├── travel-plans/        # Travel plan CRUD
+│   │   ├── upcoming-trips/      # Future trips
+│   │   ├── globals.css          # Global styles
+│   │   └── layout.tsx           # Root layout
+│   │
+│   ├── components/              # Reusable components
+│   │   ├── layout/              # Layout components
+│   │   │   └── Navbar.tsx
+│   │   ├── modules/             # Feature-specific components
+│   │   │   ├── auth/            # Auth components
+│   │   │   ├── home/            # Landing page sections
+│   │   │   └── profile/         # Profile components
+│   │   ├── providers/           # Context providers
+│   │   └── ui/                  # Shadcn/ui components
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── typography.tsx
+│   │       ├── stat-card.tsx
+│   │       ├── feature-card.tsx
+│   │       ├── empty-state.tsx
+│   │       └── ...
+│   │
+│   ├── context/                 # React Context
+│   │   └── AuthContext.tsx
+│   │
+│   ├── hooks/                   # Custom React hooks
+│   │   ├── mutations/           # TanStack Query mutations
+│   │   │   ├── useLogin.ts
+│   │   │   ├── useRegister.ts
+│   │   │   ├── useCreateTravelPlan.ts
+│   │   │   └── ...
+│   │   └── queries/             # TanStack Query queries
+│   │       ├── useGetMe.ts
+│   │       ├── useGetTravelPlans.ts
+│   │       └── ...
+│   │
+│   ├── lib/                     # Utilities and configurations
+│   │   ├── api/                 # API client functions
+│   │   │   ├── auth.api.ts
+│   │   │   └── travel.api.ts
+│   │   ├── axios.ts             # Axios configuration
+│   │   ├── queryClient.ts       # TanStack Query setup
+│   │   └── utils.ts             # Helper functions
+│   │
+│   └── types/                   # TypeScript type definitions
+│       ├── auth.types.ts
+│       └── travel.types.ts
+│
+├── public/                      # Static assets
+├── .env.local                   # Environment variables
+├── components.json              # Shadcn/ui config
+├── eslint.config.mjs           # ESLint configuration
+├── next.config.ts              # Next.js configuration
+├── package.json                # Dependencies
+├── postcss.config.mjs          # PostCSS configuration
+├── tailwind.config.ts          # Tailwind CSS configuration
+└── tsconfig.json               # TypeScript configuration
+```
+
+## 🎨 Design System
+
+### Color Palette
+
+- **Primary**: Violet (500-950)
+- **Secondary**: Purple (500-950)
+- **Accent**: Pink (500-950)
+- **Semantic Colors**: Success (Green), Warning (Amber), Info (Blue)
+
+### Typography Scale
+
+- Display: 4.5rem (72px)
+- H1: 3rem (48px)
+- H2: 2.25rem (36px)
+- H3: 1.875rem (30px)
+- H4: 1.5rem (24px)
+- H5: 1.25rem (20px)
+- H6: 1.125rem (18px)
+- Body: 1rem (16px)
+- Small: 0.875rem (14px)
+- Caption: 0.75rem (12px)
+
+### Custom Components
+
+- **StatCard**: Display statistics with trend indicators
+- **FeatureCard**: Showcase features with icons
+- **EmptyState**: User-friendly no-data states
+- **UserCard**: Display user profiles in various layouts
+- **Typography**: Semantic heading and text components
+
+### Utilities
+
+- Elevation system (sm, md, lg, xl)
+- Animation utilities (fade-in, slide-up)
+- Container utilities (wide, narrow)
+- Gradient text effects
+
+## 🔒 Environment Variables
+
+| Variable                   | Description     | Example                     |
+| -------------------------- | --------------- | --------------------------- |
+| `NEXT_PUBLIC_API_BASE_URL` | Backend API URL | `http://localhost:5000/api` |
+
+## 🚢 Deployment
+
+### Production Build
+
+```bash
+npm run build
+npm start
+```
+
+### Deployment Platforms
+
+- **Vercel** (Recommended for Next.js)
+- **Netlify**
+- **AWS Amplify**
+- **Railway**
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 👥 Authors
+
+- Your Name - Initial work
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [TanStack Query](https://tanstack.com/query)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+
+---
+
+Built with ❤️ using Next.js and TypeScript
