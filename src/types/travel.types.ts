@@ -14,6 +14,7 @@ export interface TravelPlan {
         fullName: string;
         email: string;
         profileImage?: string;
+        isVerified?: boolean;
     };
     startDate: string;
     endDate: string;

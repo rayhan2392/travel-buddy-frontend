@@ -7,6 +7,7 @@ import { useJoinTravelPlan } from "@/hooks/mutations/useJoinTravelPlan";
 import { useLeaveTravelPlan } from "@/hooks/mutations/useLeaveTravelPlan";
 import { useDeleteTravelPlan } from "@/hooks/mutations/useDeleteTravelPlan";
 import { useAuth } from "@/context/AuthContext";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
 import { H2 } from "@/components/ui/typography";
@@ -301,7 +302,10 @@ export default function TravelPlanDetailPage() {
                                         </AvatarFallback>
                                     </Avatar>
                                     <div>
-                                        <h3 className="text-xl font-bold mb-1">{plan.host.fullName}</h3>
+                                        <h3 className="text-xl font-bold mb-1 flex items-center justify-center gap-2">
+                                            {plan.host.fullName}
+                                            {plan.host.isVerified && <VerifiedBadge size="sm" />}
+                                        </h3>
                                         <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                                             <Mail className="w-4 h-4" />
                                             <span>{plan.host.email}</span>

@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
 import { H1, BodyLarge } from "@/components/ui/typography";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { useAuth } from "@/context/AuthContext";
 import { useGetMyTravelPlans } from "@/hooks/queries/useGetMyTravelPlans";
 import { Plus, Plane, MapPin, Calendar, DollarSign, Users } from "lucide-react";
@@ -107,7 +108,10 @@ export default function MyPlansPage() {
                                             </AvatarFallback>
                                         </Avatar>
                                         <div>
-                                            <p className="text-sm font-medium">Hosted by {plan.host.fullName}</p>
+                                            <p className="text-sm font-medium flex items-center gap-1.5">
+                                                Hosted by {plan.host.fullName}
+                                                {plan.host.isVerified && <VerifiedBadge size="sm" />}
+                                            </p>
                                             <p className="text-xs text-muted-foreground">{plan.host.email}</p>
                                         </div>
                                     </div>

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { MapPin, Mail, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +16,7 @@ interface UserCardProps {
         location?: string;
         rating?: number;
         role?: string;
+        isVerified?: boolean;
     };
     onViewProfile?: (id: string) => void;
     onSendMessage?: (id: string) => void;
@@ -48,7 +50,10 @@ export function UserCard({
                             </AvatarFallback>
                         </Avatar>
                         <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold truncate">{user.name}</h4>
+                            <h4 className="font-semibold truncate flex items-center gap-1.5">
+                                {user.name}
+                                {user.isVerified && <VerifiedBadge size="sm" />}
+                            </h4>
                             <p className="text-sm text-muted-foreground truncate">{user.email}</p>
                         </div>
                         {onViewProfile && (
@@ -73,7 +78,10 @@ export function UserCard({
                         </AvatarFallback>
                     </Avatar>
                     <div className="space-y-1 mb-3">
-                        <h3 className="text-lg font-semibold">{user.name}</h3>
+                        <h3 className="text-lg font-semibold flex items-center gap-1.5 justify-center">
+                            {user.name}
+                            {user.isVerified && <VerifiedBadge size="sm" />}
+                        </h3>
                         {user.role && (
                             <Badge variant={user.role === "admin" ? "default" : "secondary"} className="capitalize">
                                 {user.role}

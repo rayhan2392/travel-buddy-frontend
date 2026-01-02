@@ -6,9 +6,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { H1 } from "@/components/ui/typography";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { useAuth } from "@/context/AuthContext";
 import { EditProfileDialog } from "@/components/modules/profile/EditProfileDialog";
-import { Mail, Calendar, MapPin, Star, Shield, Pencil } from "lucide-react";
+import { Mail, Calendar, MapPin, Star, Pencil, Crown } from "lucide-react";
+import Link from "next/link";
 
 export default function ProfilePage() {
     const { user, isLoading } = useAuth();
@@ -76,19 +78,26 @@ export default function ProfilePage() {
                                 </Avatar>
                                 <div className="flex-1 space-y-2">
                                     <div className="flex items-center gap-3 flex-wrap">
-                                        <H1>{user.fullName}</H1>
-                                        {user.isVerified && (
-                                            <Badge variant="default" className="gap-1">
-                                                <Shield className="w-3 h-3" />
-                                                Verified
-                                            </Badge>
-                                        )}
-                                        <Badge variant="secondary">{user.role}</Badge>
+                                        <H1 className="flex items-center gap-2">
+                                            {user.fullName}
+                                            {user.isVerified && <VerifiedBadge size="lg" />}
+                                        </H1>
+                                        <Badge variant="secondary" className="capitalize">{user.role}</Badge>
                                     </div>
                                     <CardDescription className="flex items-center gap-2">
                                         <Mail className="w-4 h-4" />
                                         {user.email}
                                     </CardDescription>
+                                    {!user.isVerified && (
+                                        <div className="mt-2">
+                                            <Link href="/pricing">
+                                                <Button size="sm" variant="outline" className="border-primary text-primary">
+                                                    <Crown className="w-4 h-4 mr-2" />
+                                                    Get Verified Badge
+                                                </Button>
+                                            </Link>
+                                        </div>
+                                    )}
                                 </div>
                                 <EditProfileDialog user={user}>
                                     <Button>

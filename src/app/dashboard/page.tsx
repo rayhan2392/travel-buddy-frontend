@@ -3,8 +3,10 @@
 import { StatCard } from "@/components/ui/stat-card";
 import { H2, BodyLarge } from "@/components/ui/typography";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SubscriptionBanner } from "@/components/modules/subscription/SubscriptionBanner";
 import { useGetMyTravelPlans } from "@/hooks/queries/useGetMyTravelPlans";
 import { useGetJoinedTravelPlans } from "@/hooks/queries/useGetJoinedTravelPlans";
+import { useAuth } from "@/context/AuthContext";
 import { MapPin, Users, Calendar, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,6 +14,7 @@ import { Button } from "@/components/ui/button";
 export default function DashboardPage() {
     const { data: myPlans, isLoading: loadingMyPlans } = useGetMyTravelPlans();
     const { data: joinedPlans, isLoading: loadingJoined } = useGetJoinedTravelPlans();
+    const { user } = useAuth();
 
     const myPlansCount = myPlans?.length || 0;
     const joinedPlansCount = joinedPlans?.length || 0;
@@ -19,6 +22,9 @@ export default function DashboardPage() {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-violet-50/50 to-white dark:from-gray-950 dark:to-gray-900">
+            {/* Subscription Banner for non-verified users */}
+            {user && !user.isVerified && <SubscriptionBanner />}
+
             <div className="container-wide px-4 py-8">
                 {/* Header */}
                 <div className="mb-8">

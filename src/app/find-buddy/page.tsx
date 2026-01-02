@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/ui/empty-state";
 import { H1, BodyLarge } from "@/components/ui/typography";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 import { Search, MapPin, Calendar, DollarSign, Users, Heart, ArrowLeft, Filter } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -248,7 +249,10 @@ export default function FindBuddyPage() {
                                                     </AvatarFallback>
                                                 </Avatar>
                                                 <div>
-                                                    <p className="text-sm font-medium">{plan.host.fullName}</p>
+                                                    <p className="text-sm font-medium flex items-center gap-1.5">
+                                                        {plan.host.fullName}
+                                                        {plan.host.isVerified && <VerifiedBadge size="sm" />}
+                                                    </p>
                                                     <p className="text-xs text-muted-foreground">{plan.host.email}</p>
                                                 </div>
                                             </div>
