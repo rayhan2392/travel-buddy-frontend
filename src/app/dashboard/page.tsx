@@ -23,7 +23,7 @@ export default function DashboardPage() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-violet-50/50 to-white dark:from-gray-950 dark:to-gray-900">
             {/* Subscription Banner for non-verified users */}
-            {user && !user.isVerified && <SubscriptionBanner />}
+            {user && !user.isVerified && user.role !== "admin" && <SubscriptionBanner />}
 
             <div className="container-wide px-4 py-8">
                 {/* Header */}

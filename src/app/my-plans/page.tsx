@@ -155,12 +155,20 @@ export default function MyPlansPage() {
                                         </div>
                                     </div>
 
-                                    {/* View Details Button */}
-                                    <Link href={`/travel-plans/${plan._id}`}>
-                                        <Button className="w-full" variant="outline">
-                                            View Details
-                                        </Button>
-                                    </Link>
+                                    {/* Action Buttons */}
+                                    <div className="flex gap-3">
+                                        <Link href={`/my-plans/${plan._id}/requests`} className="flex-1">
+                                            <Button variant="outline" className="w-full">
+                                                <Users className="w-4 h-4 mr-2" />
+                                                Manage Requests
+                                            </Button>
+                                        </Link>
+                                        <Link href={`/travel-plans/${plan._id}`} className="flex-1">
+                                            <Button className="w-full" variant="outline">
+                                                View Details
+                                            </Button>
+                                        </Link>
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}

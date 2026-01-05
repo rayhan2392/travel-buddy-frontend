@@ -17,7 +17,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Plane, Loader2, Users, MapPin, Star } from "lucide-react";
-import { AxiosError } from "axios";
+
 
 const loginSchema = z.object({
     email: z.string().email("Please enter a valid email address"),
@@ -27,7 +27,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
-    const { mutate: login, isPending, error } = useLogin();
+    const { mutate: login, isPending } = useLogin();
 
     const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
@@ -40,10 +40,6 @@ export function LoginForm() {
     const onSubmit = (data: LoginFormValues) => {
         login(data);
     };
-
-    const errorMessage = error instanceof AxiosError
-        ? (error.response?.data as { message?: string })?.message || "Login failed. Please try again."
-        : null;
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 dark:from-violet-950 dark:to-background p-4">
@@ -101,12 +97,6 @@ export function LoginForm() {
                                     </FormItem>
                                 )}
                             />
-
-                            {errorMessage && (
-                                <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md">
-                                    {errorMessage}
-                                </div>
-                            )}
 
                             <Button
                                 type="submit"

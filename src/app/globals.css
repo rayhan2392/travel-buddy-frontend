@@ -90,6 +90,14 @@
   --violet-800: 263 69% 35%;
   --violet-900: 264 68% 29%;
   --violet-950: 261 73% 19%;
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 .dark {
@@ -139,6 +147,13 @@
   --violet-800: 251 91% 95%;
   --violet-900: 250 100% 98%;
   --violet-950: 250 100% 99%;
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 @layer base {
@@ -265,6 +280,10 @@
     animation: slideUp 0.5s ease-out;
   }
 
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -282,6 +301,24 @@
     to {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
     }
   }
 }

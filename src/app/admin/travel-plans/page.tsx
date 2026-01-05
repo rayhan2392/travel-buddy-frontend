@@ -5,6 +5,7 @@ import { useGetTravelPlans } from "@/hooks/queries/useGetTravelPlans";
 import { useDeleteTravelPlan } from "@/hooks/mutations/useDeleteTravelPlan";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AdminLayout } from "@/components/layout/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -45,7 +46,7 @@ export default function AdminTravelPlansPage() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
+            <AdminLayout>
                 <div className="container mx-auto px-4 py-8 max-w-7xl">
                     <Skeleton className="h-10 w-48 mb-6" />
                     <div className="mb-8">
@@ -59,7 +60,7 @@ export default function AdminTravelPlansPage() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </AdminLayout>
         );
     }
 
@@ -91,7 +92,7 @@ export default function AdminTravelPlansPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <AdminLayout>
             <div className="container mx-auto px-4 py-8 max-w-7xl">
                 {/* Back Button */}
                 <Button
@@ -325,6 +326,6 @@ export default function AdminTravelPlansPage() {
                     </AlertDialogContent>
                 </AlertDialog>
             </div>
-        </div>
+        </AdminLayout>
     );
 }

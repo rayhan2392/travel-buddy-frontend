@@ -1,8 +1,57 @@
-# 🧳 Travel Buddy - Frontend
+<div align="center">
+  <h1>🧳 Travel Buddy</h1>
+  <p><strong>Your Ultimate Travel Companion Platform</strong></p>
+  
+  <p>A modern, feature-rich web application that connects travelers worldwide. Built with Next.js 16, React 19, and TypeScript, featuring a stunning glass-morphism UI, real-time matching, and comprehensive travel planning tools.</p>
 
-A modern, feature-rich travel companion platform built with Next.js 16 and TypeScript. Connect with fellow travelers, discover new destinations, and plan your next adventure together.
+[![Next.js](https://img.shields.io/badge/Next.js-16.0.8-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-## ✨ Features
+[Live Demo](#) • [Documentation](#) • [Report Bug](#) • [Request Feature](#)
+
+</div>
+
+---
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [Design System](#-design-system)
+- [Architecture](#-architecture)
+- [API Integration](#-api-integration)
+- [Environment Variables](#-environment-variables)
+- [Scripts](#-scripts)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## 🌟 Overview
+
+**Travel Buddy** is a next-generation travel companion platform designed to connect travelers, facilitate trip planning, and build a vibrant community of adventure seekers. The platform features a modern glass-morphism UI with smooth animations, real-time data synchronization, and an intuitive user experience.
+
+### What Makes Travel Buddy Special?
+
+- **🎨 Modern UI/UX**: Glass-morphism design with gradient themes and smooth animations
+- **⚡ Lightning Fast**: Built with Next.js 16 and Turbopack for optimal performance
+- **🔒 Secure**: JWT-based authentication with role-based access control
+- **📱 Responsive**: Seamless experience across all devices
+- **♿ Accessible**: WCAG compliant with keyboard navigation support
+- **🌐 Real-time**: Live updates and instant matching using TanStack Query
+
+---
+
+## ✨ Key Features
 
 ### 🔐 Authentication & Authorization
 
@@ -59,37 +108,99 @@ A modern, feature-rich travel companion platform built with Next.js 16 and TypeS
 - Shadcn/ui component library
 - Tailwind CSS styling
 
-## 🛠️ Technologies
+## ✨ Key Features
 
-### Core
+### 🔐 Authentication & User Management
 
-- **Next.js 16.0.8** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **React 19** - UI library
-- **Turbopack** - Fast bundler
+- **Secure Authentication**: JWT-based auth with HTTP-only cookies
+- **Role-Based Access**: User and Admin roles with protected routes
+- **User Profiles**: Comprehensive profiles with avatars, bios, interests, and visited countries
+- **Verified Badges**: Special badges for verified travelers with multiple visual variants
+- **Profile Customization**: Edit profile information, upload photos, and manage preferences
+- **Rating System**: 5-star rating system with average ratings displayed
+
+### 🗺️ Travel Planning & Discovery
+
+- **Create Travel Plans**: Rich travel plan creation with destinations, dates, budgets, and itineraries
+- **Smart Search & Filters**: Real-time filtering by destination, dates, interests, and budget
+- **Travel Buddy Matching**: Intelligent matching algorithm to find compatible travel companions
+- **Explore Travelers**: Browse and discover fellow travelers with detailed profile cards
+- **Interactive Cards**: Modern travel plan cards with glass-morphism and hover effects
+- **Plan Management**: Edit, delete, and manage your travel plans with ease
+
+### ⭐ Reviews & Social Features
+
+- **Post-Trip Reviews**: Share experiences with star ratings and detailed feedback
+- **Review Management**: Edit and delete your own reviews
+- **Community Ratings**: View aggregate ratings on user profiles
+- **Join Requests**: Request to join travel plans and manage incoming requests
+- **Real-time Updates**: Instant notifications for plan updates and join requests
+
+### 👨‍💼 Admin Dashboard
+
+- **User Management**: View, manage, and moderate user accounts
+- **Travel Plan Oversight**: Monitor and moderate travel plans
+- **Analytics Dashboard**: View platform statistics and user metrics
+- **Sidebar Navigation**: Dedicated admin interface separate from user views
+- **Content Moderation**: Tools to maintain platform quality and safety
+
+### 🎨 UI/UX Excellence
+
+- **Glass-morphism Design**: Modern backdrop-blur effects with gradient overlays
+- **Gradient Themes**: Blue→Purple→Violet color scheme throughout
+- **Smooth Animations**: Scale, translate, and fade effects on interactions
+- **Loading States**: Beautiful skeleton screens with shimmer effects
+- **Toast Notifications**: Non-intrusive feedback using Sonner
+- **Dark Mode Support**: System-aware theme switching
+- **Responsive Design**: Optimized for mobile, tablet, and desktop
+- **Accessibility**: ARIA labels, keyboard navigation, and screen reader support
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend Framework
+
+| Technology     | Version | Purpose                                 |
+| -------------- | ------- | --------------------------------------- |
+| **Next.js**    | 16.0.8  | React framework with App Router and SSR |
+| **React**      | 19      | UI library with concurrent features     |
+| **TypeScript** | 5.0+    | Type-safe development                   |
+| **Turbopack**  | Latest  | Ultra-fast bundler and dev server       |
 
 ### State Management & Data Fetching
 
-- **TanStack Query v5** - Server state management
-- **Axios** - HTTP client
-- **React Hook Form** - Form handling
-- **Zod** - Schema validation
+| Technology            | Purpose                                               |
+| --------------------- | ----------------------------------------------------- |
+| **TanStack Query v5** | Server state management, caching, and synchronization |
+| **Axios**             | HTTP client with interceptors for auth                |
+| **React Hook Form**   | Performant form management                            |
+| **Zod**               | Runtime schema validation                             |
+| **React Context**     | Global auth state management                          |
 
-### UI Components & Styling
+### UI & Styling
 
-- **Shadcn/ui** - Accessible component library
-- **Tailwind CSS v4** - Utility-first CSS
-- **Lucide React** - Icon library
-- **Sonner** - Toast notifications
-- **Radix UI** - Unstyled, accessible components
+| Technology          | Purpose                                    |
+| ------------------- | ------------------------------------------ |
+| **Shadcn/ui**       | Accessible, customizable component library |
+| **Tailwind CSS v4** | Utility-first CSS framework                |
+| **Radix UI**        | Unstyled, accessible primitives            |
+| **Lucide React**    | Beautiful, consistent icon library         |
+| **Sonner**          | Modern toast notification system           |
+| **Next.js Image**   | Optimized image loading and optimization   |
 
 ### Development Tools
 
-- **ESLint** - Code linting
-- **TypeScript ESLint** - TS-specific linting
-- **PostCSS** - CSS transformations
+| Tool                  | Purpose                               |
+| --------------------- | ------------------------------------- |
+| **ESLint**            | Code quality and consistency          |
+| **TypeScript ESLint** | TypeScript-specific linting rules     |
+| **PostCSS**           | CSS transformations and autoprefixing |
+| **Git**               | Version control                       |
 
-## 📦 Installation
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -97,216 +208,1069 @@ A modern, feature-rich travel companion platform built with Next.js 16 and TypeS
 - npm or yarn
 - Git
 
-### Setup Steps
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** >= 18.17.0 ([Download](https://nodejs.org/))
+- **npm** >= 9.0.0 or **yarn** >= 1.22.0
+- **Git** ([Download](https://git-scm.com/))
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
+
+### Installation
 
 1. **Clone the repository**
 
-```bash
-git clone https://github.com/rayhan2392/travel-buddy-frontend.git
-cd travel-buddy-frontend
-```
+   ```bash
+   git clone https://github.com/rayhan2392/travel-buddy-frontend.git
+   cd travel-buddy-frontend
+   ```
 
 2. **Install dependencies**
 
-```bash
-npm install
-```
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Using yarn:
+
+   ```bash
+   yarn install
+   ```
 
 3. **Configure environment variables**
 
-Create a `.env.local` file in the root directory:
+   Create a `.env.local` file in the root directory:
 
-```env
-NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
-# Add other environment variables as needed
-```
+   ```env
+   # API Configuration
+   NEXT_PUBLIC_API_BASE_URL=https://travel-buddy-backend-omega.vercel.app/api/v1
 
-4. **Run development server**
+   # Optional: Add other configuration
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+   ```
+
+4. **Start the development server**
+
+   Using npm:
+
+   ```bash
+   npm run dev
+   ```
+
+   Using yarn:
+
+   ```bash
+   yarn dev
+   ```
+
+   The application will be available at [http://localhost:3000](http://localhost:3000)
+
+5. **Build for production** (optional)
+
+   ```bash
+   npm run build
+   npm start
+   ```
+
+### Quick Start for Developers
 
 ```bash
+# Clone and setup in one go
+git clone https://github.com/rayhan2392/travel-buddy-frontend.git && \
+cd travel-buddy-frontend && \
+npm install && \
+echo "NEXT_PUBLIC_API_BASE_URL=https://travel-buddy-backend-omega.vercel.app/api/v1" > .env.local && \
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
-
-## 🚀 Available Scripts
-
-```bash
-# Start development server with Turbopack
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-
-# Run ESLint
-npm run lint
-```
+---
 
 ## 📁 Project Structure
 
 ```
 travel-buddy-frontend/
+├── public/                           # Static assets
+│   └── destinations/                 # Destination images
+│       ├── paris.jpg
+│       ├── tokyo.avif
+│       └── ...
+│
 ├── src/
-│   ├── app/                      # Next.js App Router pages
-│   │   ├── (auth)/              # Authentication routes
-│   │   │   ├── login/
-│   │   │   └── register/
-│   │   ├── admin/               # Admin dashboard routes
-│   │   │   ├── dashboard/
-│   │   │   ├── users/
-│   │   │   └── travel-plans/
-│   │   ├── dashboard/           # User dashboard
-│   │   ├── explore/             # User discovery
-│   │   ├── find-buddy/          # Travel buddy search
-│   │   ├── my-plans/            # User's travel plans
-│   │   ├── past-trips/          # Completed trips
-│   │   ├── profile/             # Profile management
-│   │   ├── reviews/             # Review system
-│   │   ├── travel-plans/        # Travel plan CRUD
-│   │   ├── upcoming-trips/      # Future trips
-│   │   ├── globals.css          # Global styles
-│   │   └── layout.tsx           # Root layout
+│   ├── app/                          # Next.js App Router
+│   │   ├── (auth)/                   # Auth route group
+│   │   │   ├── login/                # Login page
+│   │   │   └── register/             # Registration page
+│   │   │
+│   │   ├── admin/                    # Admin route group
+│   │   │   ├── dashboard/            # Admin dashboard
+│   │   │   ├── users/                # User management
+│   │   │   └── travel-plans/         # Travel plan management
+│   │   │
+│   │   ├── dashboard/                # User dashboard
+│   │   ├── explore/                  # Discover travelers
+│   │   ├── find-buddy/               # Search & match travel buddies
+│   │   ├── my-plans/                 # User's travel plans
+│   │   ├── past-trips/               # Completed trips
+│   │   ├── profile/                  # Profile pages
+│   │   │   ├── page.tsx              # Current user profile
+│   │   │   └── [id]/page.tsx         # Other user profiles
+│   │   │
+│   │   ├── reviews/                  # Review management
+│   │   ├── travel-plans/             # Travel plan CRUD
+│   │   │   ├── [id]/page.tsx         # Plan details
+│   │   │   └── add/page.tsx          # Create new plan
+│   │   │
+│   │   ├── upcoming-trips/           # Future trips
+│   │   ├── error.tsx                 # Error boundary
+│   │   ├── globals.css               # Global styles & animations
+│   │   ├── layout.tsx                # Root layout
+│   │   ├── loading.tsx               # Loading state
+│   │   ├── not-found.tsx             # 404 page
+│   │   └── page.tsx                  # Landing page
 │   │
-│   ├── components/              # Reusable components
-│   │   ├── layout/              # Layout components
-│   │   │   └── Navbar.tsx
-│   │   ├── modules/             # Feature-specific components
-│   │   │   ├── auth/            # Auth components
-│   │   │   ├── home/            # Landing page sections
-│   │   │   └── profile/         # Profile components
-│   │   ├── providers/           # Context providers
-│   │   └── ui/                  # Shadcn/ui components
+│   ├── components/
+│   │   ├── layout/                   # Layout components
+│   │   │   ├── AdminLayout.tsx       # Admin wrapper with sidebar
+│   │   │   ├── ConditionalNavbar.tsx # Route-aware navbar
+│   │   │   ├── Footer.tsx            # Site footer
+│   │   │   └── Navbar.tsx            # Main navigation
+│   │   │
+│   │   ├── modules/                  # Feature-specific components
+│   │   │   ├── auth/                 # Authentication
+│   │   │   │   ├── LoginForm.tsx
+│   │   │   │   └── RegisterForm.tsx
+│   │   │   │
+│   │   │   ├── home/                 # Landing page sections
+│   │   │   │   ├── CTASection.tsx
+│   │   │   │   ├── HeroSection.tsx
+│   │   │   │   ├── HowItWorksSection.tsx
+│   │   │   │   ├── PopularDestinationsSection.tsx
+│   │   │   │   ├── StatsSection.tsx
+│   │   │   │   ├── TestimonialsSection.tsx
+│   │   │   │   └── WhyChooseUsSection.tsx
+│   │   │   │
+│   │   │   └── profile/              # Profile components
+│   │   │       └── EditProfileDialog.tsx
+│   │   │
+│   │   ├── providers/                # React Context providers
+│   │   │   └── Providers.tsx         # Query & Auth providers
+│   │   │
+│   │   └── ui/                       # Reusable UI components
+│   │       ├── alert-dialog.tsx
+│   │       ├── avatar.tsx
+│   │       ├── badge.tsx
 │   │       ├── button.tsx
 │   │       ├── card.tsx
-│   │       ├── typography.tsx
-│   │       ├── stat-card.tsx
-│   │       ├── feature-card.tsx
-│   │       ├── empty-state.tsx
-│   │       └── ...
+│   │       ├── dialog.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── empty-state.tsx       # No data states
+│   │       ├── error-display.tsx     # Error messages
+│   │       ├── feature-card.tsx      # Feature showcase
+│   │       ├── form.tsx
+│   │       ├── input.tsx
+│   │       ├── label.tsx
+│   │       ├── loading-spinner.tsx
+│   │       ├── popover.tsx
+│   │       ├── select.tsx
+│   │       ├── separator.tsx
+│   │       ├── sheet.tsx
+│   │       ├── skeleton.tsx          # Loading skeletons
+│   │       ├── stat-card.tsx         # Statistics display
+│   │       ├── table.tsx
+│   │       ├── tabs.tsx
+│   │       ├── textarea.tsx
+│   │       ├── tooltip.tsx
+│   │       ├── typography.tsx        # Semantic typography
+│   │       ├── user-card.tsx         # Traveler cards
+│   │       └── verified-badge.tsx    # Verified user badge
 │   │
-│   ├── context/                 # React Context
-│   │   └── AuthContext.tsx
+│   ├── context/                      # React Context
+│   │   └── AuthContext.tsx           # Authentication state
 │   │
-│   ├── hooks/                   # Custom React hooks
-│   │   ├── mutations/           # TanStack Query mutations
+│   ├── hooks/                        # Custom React hooks
+│   │   ├── mutations/                # TanStack Query mutations
+│   │   │   ├── useCreateTravelPlan.ts
+│   │   │   ├── useDeleteTravelPlan.ts
+│   │   │   ├── useJoinTravelPlan.ts
+│   │   │   ├── useLeaveTravelPlan.ts
 │   │   │   ├── useLogin.ts
 │   │   │   ├── useRegister.ts
-│   │   │   ├── useCreateTravelPlan.ts
-│   │   │   └── ...
-│   │   └── queries/             # TanStack Query queries
+│   │   │   ├── useSubmitReview.ts
+│   │   │   └── useUpdateProfile.ts
+│   │   │
+│   │   └── queries/                  # TanStack Query queries
+│   │       ├── useGetAllUsers.ts
+│   │       ├── useGetJoinedTravelPlans.ts
 │   │       ├── useGetMe.ts
+│   │       ├── useGetMyTravelPlans.ts
+│   │       ├── useGetPastJoinedTravelPlans.ts
+│   │       ├── useGetTravelPlanById.ts
 │   │       ├── useGetTravelPlans.ts
-│   │       └── ...
+│   │       ├── useGetUserById.ts
+│   │       ├── useGetUserReviews.ts
+│   │       └── useMatchTravelPlans.ts
 │   │
-│   ├── lib/                     # Utilities and configurations
-│   │   ├── api/                 # API client functions
-│   │   │   ├── auth.api.ts
-│   │   │   └── travel.api.ts
-│   │   ├── axios.ts             # Axios configuration
-│   │   ├── queryClient.ts       # TanStack Query setup
-│   │   └── utils.ts             # Helper functions
+│   ├── lib/                          # Utilities & configurations
+│   │   ├── api/                      # API client functions
+│   │   │   ├── auth.api.ts           # Authentication APIs
+│   │   │   └── travel.api.ts         # Travel-related APIs
+│   │   │
+│   │   ├── axios.ts                  # Axios configuration with interceptors
+│   │   ├── queryClient.ts            # TanStack Query setup
+│   │   └── utils.ts                  # Helper functions (cn, etc.)
 │   │
-│   └── types/                   # TypeScript type definitions
-│       ├── auth.types.ts
-│       └── travel.types.ts
+│   └── types/                        # TypeScript definitions
+│       ├── auth.types.ts             # Auth & user types
+│       └── travel.types.ts           # Travel plan types
 │
-├── public/                      # Static assets
-├── .env.local                   # Environment variables
-├── components.json              # Shadcn/ui config
-├── eslint.config.mjs           # ESLint configuration
-├── next.config.ts              # Next.js configuration
-├── package.json                # Dependencies
-├── postcss.config.mjs          # PostCSS configuration
-├── tailwind.config.ts          # Tailwind CSS configuration
-└── tsconfig.json               # TypeScript configuration
+├── .env.local                        # Environment variables (create this)
+├── .eslintrc.json                    # ESLint configuration
+├── .gitignore                        # Git ignore rules
+├── components.json                   # Shadcn/ui configuration
+├── eslint.config.mjs                 # ESLint config
+├── next-env.d.ts                     # Next.js TypeScript declarations
+├── next.config.ts                    # Next.js configuration
+├── package.json                      # Dependencies & scripts
+├── postcss.config.mjs                # PostCSS configuration
+├── README.md                         # This file
+├── SETUP.md                          # Setup instructions
+├── tailwind.config.ts                # Tailwind CSS configuration
+└── tsconfig.json                     # TypeScript configuration
 ```
 
-## 🎨 Design System
+### Key Directories Explained
 
-### Color Palette
-
-- **Primary**: Violet (500-950)
-- **Secondary**: Purple (500-950)
-- **Accent**: Pink (500-950)
-- **Semantic Colors**: Success (Green), Warning (Amber), Info (Blue)
-
-### Typography Scale
-
-- Display: 4.5rem (72px)
-- H1: 3rem (48px)
-- H2: 2.25rem (36px)
-- H3: 1.875rem (30px)
-- H4: 1.5rem (24px)
-- H5: 1.25rem (20px)
-- H6: 1.125rem (18px)
-- Body: 1rem (16px)
-- Small: 0.875rem (14px)
-- Caption: 0.75rem (12px)
-
-### Custom Components
-
-- **StatCard**: Display statistics with trend indicators
-- **FeatureCard**: Showcase features with icons
-- **EmptyState**: User-friendly no-data states
-- **UserCard**: Display user profiles in various layouts
-- **Typography**: Semantic heading and text components
-
-### Utilities
-
-- Elevation system (sm, md, lg, xl)
-- Animation utilities (fade-in, slide-up)
-- Container utilities (wide, narrow)
-- Gradient text effects
-
-## 🔒 Environment Variables
-
-| Variable                   | Description     | Example                     |
-| -------------------------- | --------------- | --------------------------- |
-| `NEXT_PUBLIC_API_BASE_URL` | Backend API URL | `http://localhost:5000/api` |
-
-## 🚢 Deployment
-
-### Production Build
-
-```bash
-npm run build
-npm start
-```
-
-### Deployment Platforms
-
-- **Vercel** (Recommended for Next.js)
-- **Netlify**
-- **AWS Amplify**
-- **Railway**
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 👥 Authors
-
-- Your Name - Initial work
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/)
-- [Shadcn/ui](https://ui.shadcn.com/)
-- [TanStack Query](https://tanstack.com/query)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Lucide Icons](https://lucide.dev/)
+- **`app/`**: Next.js 13+ App Router with file-based routing
+- **`components/ui/`**: Shadcn/ui components with custom styling
+- **`hooks/`**: Separation of concerns - mutations for writes, queries for reads
+- **`lib/api/`**: Centralized API calls with consistent error handling
+- **`types/`**: TypeScript interfaces for type safety
 
 ---
 
-Built with ❤️ using Next.js and TypeScript
+## 🎨 Design System
+
+Our design system follows modern principles with a focus on accessibility, consistency, and visual appeal.
+
+### Color Palette
+
+**Primary Gradient**: Blue (600) → Purple (600) → Violet (600)
+
+```css
+/* Primary Colors */
+--blue-600: #2563eb
+--purple-600: #9333ea
+--violet-600: #7c3aed
+
+/* Secondary Colors */
+--blue-500: #3b82f6
+--purple-500: #a855f7
+--violet-500: #8b5cf6
+
+/* Semantic Colors */
+--success: #16a34a (Green)
+--warning: #f59e0b (Amber)
+--error: #dc2626 (Red)
+--info: #0284c7 (Blue)
+```
+
+### Design Patterns
+
+#### Glass-morphism
+
+```css
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(200, 200, 200, 0.3);
+}
+```
+
+#### Gradient Borders
+
+```css
+.gradient-border {
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6, #9333ea, #8b5cf6);
+  transition: height 0.3s ease;
+}
+
+.gradient-border:hover {
+  height: 3px;
+}
+```
+
+#### Hover Effects
+
+```css
+.interactive-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+```
+
+### Typography Scale
+
+| Name    | Size            | Line Height | Use Case          |
+| ------- | --------------- | ----------- | ----------------- |
+| Display | 4.5rem (72px)   | 1.1         | Hero headings     |
+| H1      | 3rem (48px)     | 1.2         | Page titles       |
+| H2      | 2.25rem (36px)  | 1.3         | Section headings  |
+| H3      | 1.875rem (30px) | 1.4         | Subsection titles |
+| H4      | 1.5rem (24px)   | 1.5         | Card titles       |
+| H5      | 1.25rem (20px)  | 1.5         | Small headings    |
+| H6      | 1.125rem (18px) | 1.5         | Labels            |
+| Body    | 1rem (16px)     | 1.6         | Body text         |
+| Small   | 0.875rem (14px) | 1.5         | Captions          |
+| Caption | 0.75rem (12px)  | 1.4         | Meta text         |
+
+### Spacing System
+
+Based on 4px base unit:
+
+| Token | Value         | Use Case        |
+| ----- | ------------- | --------------- |
+| xs    | 0.25rem (4px) | Icon spacing    |
+| sm    | 0.5rem (8px)  | Tight spacing   |
+| md    | 1rem (16px)   | Default spacing |
+| lg    | 1.5rem (24px) | Section spacing |
+| xl    | 2rem (32px)   | Large gaps      |
+| 2xl   | 3rem (48px)   | Page sections   |
+| 3xl   | 4rem (64px)   | Hero sections   |
+
+### Animation Utilities
+
+```css
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide Up */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Shimmer (Loading) */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Spin Slow (Loaders) */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+```
+
+### Custom Components
+
+#### UserCard Variants
+
+- **Compact**: Minimal profile card (14x14 avatar)
+- **Default**: Full profile card (24x24 avatar)
+- **Detailed**: Extended info with bio and badges
+
+#### VerifiedBadge Variants
+
+- **Default**: Simple blue checkmark
+- **Premium**: Gradient with pulse animation
+- **Glow**: Animated glow ring with sparkle
+
+#### Button Variants
+
+- **Default**: Solid background
+- **Outline**: Bordered with transparent background
+- **Ghost**: Minimal styling
+- **Gradient**: Blue→Violet gradient
+
+### Accessibility
+
+- ✅ WCAG 2.1 Level AA compliant
+- ✅ Keyboard navigation support
+- ✅ Screen reader optimized
+- ✅ Focus indicators on all interactive elements
+- ✅ Semantic HTML structure
+- ✅ ARIA labels where needed
+
+---
+
+## 🏗️ Architecture
+
+## 🏗️ Architecture
+
+### Application Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     Browser (Client)                     │
+├─────────────────────────────────────────────────────────┤
+│                                                           │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │           Next.js App Router (RSC)               │   │
+│  │  - Server Components (default)                   │   │
+│  │  - Client Components ("use client")              │   │
+│  │  - Streaming & Suspense                          │   │
+│  └─────────────────────────────────────────────────┘   │
+│                         │                                │
+│  ┌─────────────────────┴─────────────────────┐         │
+│  │                                              │         │
+│  ▼                                              ▼         │
+│  ┌──────────────┐                    ┌──────────────┐  │
+│  │   UI Layer   │                    │  State Layer │  │
+│  │              │                    │              │  │
+│  │ - Shadcn/ui  │                    │ - TanStack   │  │
+│  │ - Tailwind   │◄───────────────────│   Query      │  │
+│  │ - Lucide     │                    │ - Context    │  │
+│  └──────────────┘                    │   API        │  │
+│                                       └──────┬───────┘  │
+│                                              │           │
+└──────────────────────────────────────────────┼───────────┘
+                                               │
+                                               ▼
+                                    ┌──────────────────┐
+                                    │   Axios HTTP     │
+                                    │   Client         │
+                                    │  - Interceptors  │
+                                    │  - Auth tokens   │
+                                    └────────┬─────────┘
+                                             │
+                                             ▼
+                                    ┌──────────────────┐
+                                    │  Backend API     │
+                                    │  (Express.js)    │
+                                    │                  │
+                                    │  - REST API      │
+                                    │  - JWT Auth      │
+                                    │  - MongoDB       │
+                                    └──────────────────┘
+```
+
+### Data Flow
+
+1. **User Interaction** → Component triggers action
+2. **React Hook** → Custom hook (query/mutation) called
+3. **TanStack Query** → Manages cache and loading states
+4. **Axios Client** → Sends HTTP request with auth token
+5. **Backend API** → Processes request and returns data
+6. **TanStack Query** → Updates cache automatically
+7. **Component** → Re-renders with new data
+
+### State Management Strategy
+
+#### Server State (TanStack Query)
+
+- All API data (users, travel plans, reviews)
+- Automatic caching with stale-while-revalidate
+- Optimistic updates for better UX
+- Background refetching
+
+#### Client State (React Context)
+
+- Authentication state (user, token)
+- Global UI state (modals, toasts)
+- Theme preferences
+
+#### Local State (useState/useReducer)
+
+- Form inputs
+- UI toggles
+- Component-specific state
+
+### Authentication Flow
+
+```
+┌────────────┐
+│   Login    │
+└─────┬──────┘
+      │
+      ▼
+┌────────────────────┐
+│ POST /auth/login   │
+│ - email            │
+│ - password         │
+└─────┬──────────────┘
+      │
+      ▼
+┌────────────────────┐
+│  Backend validates │
+│  Returns JWT token │
+└─────┬──────────────┘
+      │
+      ▼
+┌────────────────────┐
+│ Store in Context   │
+│ Set in Axios       │
+│ headers            │
+└─────┬──────────────┘
+      │
+      ▼
+┌────────────────────┐
+│ Redirect to        │
+│ Dashboard/Admin    │
+└────────────────────┘
+```
+
+### Routing Strategy
+
+**Public Routes**: `/`, `/login`, `/register`  
+**Protected Routes**: `/dashboard`, `/profile`, `/my-plans`, etc.  
+**Admin Routes**: `/admin/*` (role-based)
+
+Route protection implemented via:
+
+- Middleware redirects
+- Client-side auth checks
+- Conditional rendering
+
+---
+
+## 🔌 API Integration
+
+### Base Configuration
+
+```typescript
+// src/lib/axios.ts
+const axiosInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// Request interceptor - Add auth token
+axiosInstance.interceptors.request.use((config) => {
+  const token = getAuthToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Response interceptor - Handle errors
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Redirect to login
+      clearAuthToken();
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
+```
+
+### API Endpoints
+
+#### Authentication
+
+```typescript
+POST   /auth/login          - User login
+POST   /auth/register       - User registration
+GET    /auth/me             - Get current user
+PUT    /auth/profile        - Update profile
+```
+
+#### Travel Plans
+
+```typescript
+GET    /travel-plans                    - Get all plans
+GET    /travel-plans/:id                - Get plan by ID
+POST   /travel-plans                    - Create new plan
+PUT    /travel-plans/:id                - Update plan
+DELETE /travel-plans/:id                - Delete plan
+GET    /travel-plans/my-plans           - Get user's plans
+GET    /travel-plans/match              - Search/filter plans
+```
+
+#### Users
+
+```typescript
+GET    /users                - Get all users
+GET    /users/:id            - Get user by ID
+GET    /users/:id/reviews    - Get user reviews
+```
+
+#### Reviews
+
+```typescript
+POST   /reviews/:userId      - Post review
+PUT    /reviews/:reviewId    - Update review
+DELETE /reviews/:reviewId    - Delete review
+```
+
+#### Admin
+
+```typescript
+GET    /admin/users          - Get all users (admin)
+GET    /admin/travel-plans   - Get all plans (admin)
+GET    /admin/stats          - Get platform statistics
+```
+
+### TanStack Query Setup
+
+```typescript
+// src/lib/queryClient.ts
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      cacheTime: 10 * 60 * 1000, // 10 minutes
+      refetchOnWindowFocus: true,
+      refetchOnReconnect: true,
+      retry: 1,
+    },
+    mutations: {
+      retry: 0,
+    },
+  },
+});
+```
+
+### Example Query Hook
+
+```typescript
+// src/hooks/queries/useGetTravelPlans.ts
+export function useGetTravelPlans() {
+  return useQuery({
+    queryKey: ["travel-plans"],
+    queryFn: () => travelApi.getTravelPlans(),
+    staleTime: 5 * 60 * 1000,
+  });
+}
+```
+
+### Example Mutation Hook
+
+```typescript
+// src/hooks/mutations/useCreateTravelPlan.ts
+export function useCreateTravelPlan() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data) => travelApi.createTravelPlan(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["travel-plans"]);
+      toast.success("Travel plan created!");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+}
+```
+
+---
+
+## 🔐 Environment Variables
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Required: Backend API URL
+NEXT_PUBLIC_API_BASE_URL=https://travel-buddy-backend-omega.vercel.app/api/v1
+
+# Optional: Application URL (for redirects)
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Optional: Analytics (if integrated)
+# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Optional: Sentry (error tracking)
+# NEXT_PUBLIC_SENTRY_DSN=https://...
+```
+
+### Variable Descriptions
+
+| Variable                   | Required | Description                    | Example                          |
+| -------------------------- | -------- | ------------------------------ | -------------------------------- |
+| `NEXT_PUBLIC_API_BASE_URL` | ✅ Yes   | Backend API base URL           | `https://api.example.com/api/v1` |
+| `NEXT_PUBLIC_APP_URL`      | ❌ No    | Frontend URL for SEO/redirects | `https://travelbuddy.com`        |
+| `NEXT_PUBLIC_GA_ID`        | ❌ No    | Google Analytics tracking ID   | `G-XXXXXXXXXX`                   |
+| `NEXT_PUBLIC_SENTRY_DSN`   | ❌ No    | Sentry error tracking DSN      | `https://...`                    |
+
+**Note**: Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser.
+
+---
+
+## 📜 Scripts
+
+### Development
+
+```bash
+# Start development server with Turbopack (fast refresh)
+npm run dev
+
+# Start on a different port
+npm run dev -- -p 3001
+```
+
+### Production
+
+```bash
+# Create optimized production build
+npm run build
+
+# Start production server
+npm start
+
+# Build and start in one command
+npm run build && npm start
+```
+
+### Code Quality
+
+```bash
+# Run ESLint
+npm run lint
+
+# Fix auto-fixable ESLint issues
+npm run lint -- --fix
+
+# Type check without building
+npx tsc --noEmit
+```
+
+### Package Management
+
+```bash
+# Install dependencies
+npm install
+
+# Update dependencies
+npm update
+
+# Check for outdated packages
+npm outdated
+
+# Clean install (remove node_modules and reinstall)
+rm -rf node_modules package-lock.json && npm install
+```
+
+---
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+
+Travel Buddy is optimized for deployment on Vercel, the platform built by the creators of Next.js.
+
+1. **Push to GitHub**
+
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Configure environment variables
+   - Deploy!
+
+3. **Environment Variables**
+
+   - Add all variables from `.env.local`
+   - Vercel will automatically use them
+
+4. **Custom Domain** (Optional)
+   - Add your domain in Vercel dashboard
+   - Update DNS records as instructed
+
+### Manual Deployment
+
+```bash
+# Build for production
+npm run build
+
+# The output will be in the .next folder
+# Copy this folder to your server
+
+# Install only production dependencies
+npm ci --production
+
+# Start the server
+npm start
+```
+
+### Docker Deployment
+
+```dockerfile
+# Dockerfile
+FROM node:18-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN npm run build
+
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+
+CMD ["node", "server.js"]
+```
+
+```bash
+# Build and run with Docker
+docker build -t travel-buddy-frontend .
+docker run -p 3000:3000 travel-buddy-frontend
+```
+
+### Performance Optimization
+
+- ✅ Image optimization with Next.js Image
+- ✅ Code splitting and lazy loading
+- ✅ Static generation where possible
+- ✅ API response caching with TanStack Query
+- ✅ Turbopack for fast development builds
+- ✅ Production bundle size optimization
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how you can help:
+
+### Development Workflow
+
+1. **Fork the repository**
+
+   ```bash
+   # Click "Fork" on GitHub
+   git clone https://github.com/YOUR_USERNAME/travel-buddy-frontend.git
+   cd travel-buddy-frontend
+   ```
+
+2. **Create a feature branch**
+
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+
+3. **Make your changes**
+
+   - Write clean, readable code
+   - Follow existing code style
+   - Add comments for complex logic
+   - Update documentation if needed
+
+4. **Test your changes**
+
+   ```bash
+   npm run lint
+   npm run build
+   ```
+
+5. **Commit with conventional commits**
+
+   ```bash
+   git commit -m "feat: add amazing feature"
+   ```
+
+   **Commit Types**:
+
+   - `feat`: New feature
+   - `fix`: Bug fix
+   - `docs`: Documentation changes
+   - `style`: Code style changes (formatting)
+   - `refactor`: Code refactoring
+   - `test`: Adding tests
+   - `chore`: Build process or tooling changes
+
+6. **Push and create Pull Request**
+
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+
+   Then open a Pull Request on GitHub with:
+
+   - Clear description of changes
+   - Screenshots (if UI changes)
+   - Related issue numbers
+
+### Code Style Guidelines
+
+- **TypeScript**: Use strong typing, avoid `any`
+- **Components**: Use functional components with hooks
+- **File naming**:
+  - Components: `PascalCase.tsx`
+  - Utilities: `camelCase.ts`
+  - Types: `kebab-case.types.ts`
+- **Imports**: Group and order (React → Third-party → Local)
+- **Comments**: Write clear, concise comments for complex logic
+
+### Pull Request Checklist
+
+- [ ] Code follows project style guidelines
+- [ ] Self-review completed
+- [ ] Comments added for complex code
+- [ ] Documentation updated
+- [ ] No console warnings or errors
+- [ ] ESLint passes (`npm run lint`)
+- [ ] Build succeeds (`npm run build`)
+- [ ] Tested on multiple screen sizes
+
+### Reporting Issues
+
+Found a bug? Have a feature request?
+
+1. Check if issue already exists
+2. Create a new issue with:
+   - Clear, descriptive title
+   - Steps to reproduce (for bugs)
+   - Expected vs actual behavior
+   - Screenshots if applicable
+   - Environment details (OS, browser, etc.)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2026 Travel Buddy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+```
+
+---
+
+## 👥 Team
+
+### Core Contributors
+
+- **Frontend Lead** - [@rayhan2392](https://github.com/rayhan2392)
+- **UI/UX Design** - Design Team
+- **Backend Integration** - Backend Team
+
+### Special Thanks
+
+- All contributors who have helped improve this project
+- The open-source community for amazing tools
+- Beta testers for valuable feedback
+
+---
+
+## 📞 Support & Contact
+
+### Get Help
+
+- **Documentation**: [Full Documentation](#)
+- **Issues**: [GitHub Issues](https://github.com/rayhan2392/travel-buddy-frontend/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rayhan2392/travel-buddy-frontend/discussions)
+- **Email**: support@travelbuddy.com
+
+### Stay Connected
+
+- **Website**: [travelbuddy.com](#)
+- **Twitter**: [@travelbuddy](#)
+- **LinkedIn**: [Travel Buddy](#)
+- **Blog**: [blog.travelbuddy.com](#)
+
+---
+
+## 🙏 Acknowledgments
+
+This project wouldn't be possible without these amazing technologies:
+
+- **[Next.js](https://nextjs.org/)** - The React Framework for Production
+- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces
+- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript with syntax for types
+- **[Tailwind CSS](https://tailwindcss.com/)** - A utility-first CSS framework
+- **[Shadcn/ui](https://ui.shadcn.com/)** - Beautifully designed components
+- **[TanStack Query](https://tanstack.com/query)** - Powerful asynchronous state management
+- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible component primitives
+- **[Lucide Icons](https://lucide.dev/)** - Beautiful & consistent icon toolkit
+- **[Vercel](https://vercel.com/)** - The platform for frontend developers
+- **[Axios](https://axios-http.com/)** - Promise based HTTP client
+
+---
+
+## 📊 Project Stats
+
+![GitHub stars](https://img.shields.io/github/stars/rayhan2392/travel-buddy-frontend?style=social)
+![GitHub forks](https://img.shields.io/github/forks/rayhan2392/travel-buddy-frontend?style=social)
+![GitHub issues](https://img.shields.io/github/issues/rayhan2392/travel-buddy-frontend)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/rayhan2392/travel-buddy-frontend)
+![GitHub last commit](https://img.shields.io/github/last-commit/rayhan2392/travel-buddy-frontend)
+
+---
+
+<div align="center">
+  <p><strong>Built with ❤️ by the Travel Buddy Team</strong></p>
+  <p>
+    <a href="#-table-of-contents">Back to Top ↑</a>
+  </p>
+  <p>⭐ Star us on GitHub — it helps!</p>
+</div>

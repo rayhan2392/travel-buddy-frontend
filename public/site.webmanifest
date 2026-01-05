@@ -1,0 +1,49 @@
+{
+  "name": "Travel Buddy",
+  "short_name": "TravelBuddy",
+  "description": "Find your perfect travel companion and plan amazing adventures together",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "social"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Find Travel Buddy",
+      "short_name": "Find Buddy",
+      "description": "Search for travel companions",
+      "url": "/find-buddy",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Explore Travelers",
+      "short_name": "Explore",
+      "description": "Discover fellow travelers",
+      "url": "/explore",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "My Profile",
+      "short_name": "Profile",
+      "description": "View your profile",
+      "url": "/profile",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}

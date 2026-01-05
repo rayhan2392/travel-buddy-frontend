@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useGetAllUsers } from "@/hooks/queries/useGetAllUsers";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AdminLayout } from "@/components/layout/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -32,7 +33,7 @@ export default function AdminUsersPage() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
+            <AdminLayout>
                 <div className="container mx-auto px-4 py-8 max-w-7xl">
                     <Skeleton className="h-10 w-48 mb-6" />
                     <div className="mb-8">
@@ -51,7 +52,7 @@ export default function AdminUsersPage() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </AdminLayout>
         );
     }
 
@@ -69,9 +70,8 @@ export default function AdminUsersPage() {
     });
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
-            <div className="container mx-auto px-4 py-8 max-w-7xl">
-                {/* Back Button */}
+        <AdminLayout>
+            <div className="container mx-auto px-4 py-8 max-w-7xl">{/* Back Button */}
                 <Button
                     onClick={() => router.push("/admin/dashboard")}
                     variant="ghost"
@@ -259,6 +259,6 @@ export default function AdminUsersPage() {
                     </Card>
                 )}
             </div>
-        </div>
+        </AdminLayout>
     );
 }

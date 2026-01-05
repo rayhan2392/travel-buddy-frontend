@@ -4,6 +4,7 @@ import { authApi } from "@/lib/api/auth.api";
 import { useAuth } from "@/context/AuthContext";
 import { LoginInput } from "@/types/auth.types";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 export function useLogin() {
     const router = useRouter();
@@ -15,13 +16,19 @@ export function useLogin() {
             // Cookie is set by backend, just update user state
             if (response.data?.user) {
                 login(response.data.user);
+                toast.success("Welcome back! Login successful.");
+
+                // Redirect based on user role
+                if (response.data.user.role === "admin") {
+                    router.push("/admin/dashboard");
+                } else {
+                    router.push("/dashboard");
+                }
             }
-            // Redirect to dashboard
-            router.push("/dashboard");
         },
         onError: (error: AxiosError) => {
             const message = (error?.response?.data as { message?: string })?.message || "Login failed. Please try again.";
-            console.error("Login error:", message);
+            toast.error(message);
         },
     });
 }

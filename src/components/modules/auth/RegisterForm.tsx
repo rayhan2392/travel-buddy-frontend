@@ -17,7 +17,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Plane, Loader2, Shield, Heart, Globe } from "lucide-react";
-import { AxiosError } from "axios";
+
 
 const registerSchema = z.object({
     fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -32,7 +32,7 @@ const registerSchema = z.object({
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 export function RegisterForm() {
-    const { mutate: register, isPending, error } = useRegister();
+    const { mutate: register, isPending } = useRegister();
 
     const form = useForm<RegisterFormValues>({
         resolver: zodResolver(registerSchema),
@@ -47,10 +47,6 @@ export function RegisterForm() {
     const onSubmit = (data: RegisterFormValues) => {
         register(data);
     };
-
-    const errorMessage = error instanceof AxiosError
-        ? error.response?.data?.message || "Registration failed. Please try again."
-        : null;
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 dark:from-violet-950 dark:to-background p-4">
@@ -145,12 +141,6 @@ export function RegisterForm() {
                                     </FormItem>
                                 )}
                             />
-
-                            {errorMessage && (
-                                <div className="text-sm text-destructive bg-destructive/10 border border-destructive/20 p-3 rounded-lg">
-                                    {errorMessage}
-                                </div>
-                            )}
 
                             <Button
                                 type="submit"

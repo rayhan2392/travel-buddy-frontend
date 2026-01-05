@@ -3,17 +3,22 @@
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useGetAdminStats } from "@/hooks/queries/useGetAdminStats";
+import { AdminLayout } from "@/components/layout/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StatCard } from "@/components/ui/stat-card";
 import { H1, BodyLarge } from "@/components/ui/typography";
-import { Users, MapPin, Shield, BarChart } from "lucide-react";
+import { Users, MapPin, Shield, BarChart, BadgeCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminDashboard() {
     const { user, isLoading } = useAuth();
     const router = useRouter();
+    const { data: statsData, isLoading: isStatsLoading } = useGetAdminStats();
+
+    const stats = statsData?.data;
 
     useEffect(() => {
         if (!isLoading && (!user || user.role !== "admin")) {
@@ -23,7 +28,7 @@ export default function AdminDashboard() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
+            <AdminLayout>
                 <div className="container-wide px-4 py-8">
                     <div className="mb-8">
                         <Skeleton className="h-12 w-96 mb-2" />
@@ -40,7 +45,7 @@ export default function AdminDashboard() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </AdminLayout>
         );
     }
 
@@ -49,7 +54,7 @@ export default function AdminDashboard() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-violet-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <AdminLayout>
             <div className="container-wide px-4 section-padding-sm">
                 {/* Header */}
                 <div className="mb-8 animate-fade-in">
@@ -65,22 +70,22 @@ export default function AdminDashboard() {
                 {/* Quick Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-slide-up">
                     <StatCard
-                        title="Total Users"
-                        value="--"
-                        description="Registered travelers"
-                        icon={Users}
+                        title="Verified Travelers"
+                        value={isStatsLoading ? "--" : stats?.verifiedTravelers.toString() || "0"}
+                        description="Users with verified status"
+                        icon={BadgeCheck}
                         variant="info"
                     />
                     <StatCard
                         title="Travel Plans"
-                        value="--"
-                        description="Active travel plans"
+                        value={isStatsLoading ? "--" : stats?.totalTravelPlans.toString() || "0"}
+                        description="Total travel plans"
                         icon={MapPin}
                         variant="success"
                     />
                     <StatCard
                         title="Reviews"
-                        value="--"
+                        value={isStatsLoading ? "--" : stats?.totalReviews.toString() || "0"}
                         description="Total reviews"
                         icon={BarChart}
                         variant="warning"
@@ -136,6 +141,6 @@ export default function AdminDashboard() {
                     </Card>
                 </div>
             </div>
-        </div>
+        </AdminLayout>
     );
 }

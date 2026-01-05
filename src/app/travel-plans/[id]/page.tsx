@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useGetTravelPlanById } from "@/hooks/queries/useGetTravelPlanById";
-import { useJoinTravelPlan } from "@/hooks/mutations/useJoinTravelPlan";
+import { useGetMyJoinRequests } from "@/hooks/queries/useGetMyJoinRequests";
+import { useCreateJoinRequest } from "@/hooks/mutations/useCreateJoinRequest";
 import { useLeaveTravelPlan } from "@/hooks/mutations/useLeaveTravelPlan";
 import { useDeleteTravelPlan } from "@/hooks/mutations/useDeleteTravelPlan";
 import { useAuth } from "@/context/AuthContext";
@@ -45,8 +46,9 @@ export default function TravelPlanDetailPage() {
     const { user } = useAuth();
     const id = params?.id as string;
     const { data, isLoading, error } = useGetTravelPlanById(id);
+    const { data: joinRequestsData } = useGetMyJoinRequests();
     const { mutate: deleteTrip, isPending: isDeleting } = useDeleteTravelPlan();
-    const { mutate: joinTrip, isPending: isJoining } = useJoinTravelPlan();
+    const { mutate: sendJoinRequest, isPending: isSendingRequest } = useCreateJoinRequest();
     const { mutate: leaveTrip, isPending: isLeaving } = useLeaveTravelPlan();
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
@@ -88,12 +90,21 @@ export default function TravelPlanDetailPage() {
     // Check if current user has joined the trip
     const hasJoined = user ? plan.participants.includes(user._id) : false;
 
-    const handleJoinTrip = () => {
+    // Check if current user is the host
+    const isHost = user?._id === plan.host._id;
+
+    // Check if user has already sent a join request for this plan
+    const existingRequest = joinRequestsData?.data?.find(
+        req => typeof req.travelPlan === "object" && req.travelPlan._id === id
+    );
+    const hasPendingRequest = existingRequest?.status === "pending";
+
+    const handleJoinRequest = () => {
         if (!user) {
             router.push("/login");
             return;
         }
-        joinTrip(id);
+        sendJoinRequest(id);
     };
 
     const handleLeaveTrip = () => {
@@ -344,6 +355,14 @@ export default function TravelPlanDetailPage() {
                                             )}
                                         </Button>
                                     </>
+                                ) : isHost ? (
+                                    <>
+                                        <h3 className="text-xl font-bold mb-4">Your Travel Plan</h3>
+                                        <p className="text-violet-100 mb-6 text-sm">
+                                            You&apos;re hosting this trip. Manage your participants and join requests.
+                                        </p>
+                                        {/* TODO: Add Manage Requests button when API is ready */}
+                                    </>
                                 ) : hasJoined ? (
                                     <>
                                         <h3 className="text-xl font-bold mb-4">You&apos;re going on this trip! 🎉</h3>
@@ -369,27 +388,41 @@ export default function TravelPlanDetailPage() {
                                             )}
                                         </Button>
                                     </>
+                                ) : hasPendingRequest ? (
+                                    <>
+                                        <h3 className="text-xl font-bold mb-4">Request Pending ⏳</h3>
+                                        <p className="text-violet-100 mb-6 text-sm">
+                                            Your join request is pending approval from the host. Check &quot;My Requests&quot; to manage it.
+                                        </p>
+                                        <Button
+                                            onClick={() => router.push("/my-requests")}
+                                            className="w-full bg-white text-violet-600 hover:bg-violet-50"
+                                            size="lg"
+                                        >
+                                            View My Requests
+                                        </Button>
+                                    </>
                                 ) : (
                                     <>
                                         <h3 className="text-xl font-bold mb-4">Interested in joining?</h3>
                                         <p className="text-violet-100 mb-6 text-sm">
-                                            Connect with the host and other travelers to plan your adventure together!
+                                            Send a join request to the host. They&apos;ll review and approve your request.
                                         </p>
                                         <Button
-                                            onClick={handleJoinTrip}
-                                            disabled={isJoining}
+                                            onClick={handleJoinRequest}
+                                            disabled={isSendingRequest}
                                             className="w-full bg-white text-violet-600 hover:bg-violet-50"
                                             size="lg"
                                         >
-                                            {isJoining ? (
+                                            {isSendingRequest ? (
                                                 <>
                                                     <Clock className="w-4 h-4 mr-2 animate-spin" />
-                                                    Joining...
+                                                    Sending...
                                                 </>
                                             ) : (
                                                 <>
                                                     <UserPlus className="w-4 h-4 mr-2" />
-                                                    Join Trip
+                                                    Request to Join
                                                 </>
                                             )}
                                         </Button>

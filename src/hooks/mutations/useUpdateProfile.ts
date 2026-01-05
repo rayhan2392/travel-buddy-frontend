@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { authApi } from "@/lib/api/auth.api";
 import { useAuth } from "@/context/AuthContext";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 interface ErrorResponse {
     message: string;
@@ -14,11 +15,10 @@ export function useUpdateProfile() {
 
     return useMutation({
         mutationFn: (data: FormData) => {
-            console.log("Mutation: Calling authApi.updateProfile");
             return authApi.updateProfile(data);
         },
         onSuccess: (response) => {
-            console.log("Mutation: Success callback", response);
+            toast.success("Profile updated successfully!");
             // Update user in context
             if (response.data) {
                 updateUser(response.data);
@@ -27,8 +27,8 @@ export function useUpdateProfile() {
             queryClient.invalidateQueries({ queryKey: ["me"] });
         },
         onError: (error: AxiosError<ErrorResponse>) => {
-            console.error("Mutation: Error callback", error);
-            console.error("Update profile error:", error.response?.data?.message);
+            const message = error.response?.data?.message || "Failed to update profile. Please try again.";
+            toast.error(message);
         },
     });
 }
