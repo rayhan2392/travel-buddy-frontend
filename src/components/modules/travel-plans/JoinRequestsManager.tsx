@@ -154,7 +154,7 @@ export function JoinRequestsManager({ travelPlanId, pendingCount = 0 }: JoinRequ
                             <TabsContent value={selectedTab} className="mt-6">
                                 {isLoading ? (
                                     <div className="flex justify-center py-8">
-                                        <LoadingSpinner size="lg" />
+                                        <LoadingSpinner />
                                     </div>
                                 ) : requests.length === 0 ? (
                                     <EmptyState

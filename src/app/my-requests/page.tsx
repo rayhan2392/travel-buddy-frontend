@@ -24,8 +24,10 @@ import { MapPin, Calendar, DollarSign, XCircle } from "lucide-react";
 import { format } from "date-fns";
 import { JoinRequest } from "@/types/join-request.types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function MyRequestsPage() {
+    const router = useRouter();
     const { data, isLoading, error } = useGetMyJoinRequests();
     const { mutate: cancelRequest, isPending: isCancelling } = useCancelJoinRequest();
     const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
@@ -34,7 +36,7 @@ export default function MyRequestsPage() {
     if (isLoading) {
         return (
             <div className="container mx-auto px-4 py-16 flex justify-center">
-                <LoadingSpinner size="lg" />
+                <LoadingSpinner />
             </div>
         );
     }
@@ -58,8 +60,10 @@ export default function MyRequestsPage() {
                 <EmptyState
                     title="No join requests yet"
                     description="You haven't sent any join requests. Start exploring travel plans and send requests to join!"
-                    actionLabel="Explore Plans"
-                    actionHref="/explore"
+                    action={{
+                        label: "Explore Plans",
+                        onClick: () => router.push("/explore")
+                    }}
                 />
             </div>
         );

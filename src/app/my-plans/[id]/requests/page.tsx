@@ -205,7 +205,7 @@ export default function ManageRequestsPage() {
                     <TabsContent value={selectedTab}>
                         {isRequestsLoading ? (
                             <div className="flex justify-center py-16">
-                                <LoadingSpinner size="lg" />
+                                <LoadingSpinner />
                             </div>
                         ) : requests.length === 0 ? (
                             <EmptyState
