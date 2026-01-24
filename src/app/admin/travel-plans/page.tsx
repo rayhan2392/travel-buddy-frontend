@@ -98,7 +98,7 @@ export default function AdminTravelPlansPage() {
                 <Button
                     onClick={() => router.push("/admin/dashboard")}
                     variant="ghost"
-                    className="mb-6"
+                    className="mb-6 hover:bg-blue-50"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Dashboard
@@ -107,12 +107,12 @@ export default function AdminTravelPlansPage() {
                 {/* Header */}
                 <div className="mb-8">
                     <div className="flex items-center gap-3 mb-2">
-                        <MapPin className="w-10 h-10 text-green-600" />
-                        <H1 className="text-gradient-primary">
+                        <MapPin className="w-10 h-10 text-blue-600" />
+                        <H1 className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                             Travel Plans Management
                         </H1>
                     </div>
-                    <BodyLarge className="text-muted-foreground">
+                    <BodyLarge className="text-gray-600">
                         View and manage all travel plans
                     </BodyLarge>
                 </div>
@@ -120,60 +120,60 @@ export default function AdminTravelPlansPage() {
                 {/* Search Bar */}
                 <div className="mb-6">
                     <div className="relative max-w-md">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                         <Input
                             type="text"
                             placeholder="Search by destination, host, or description..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-10"
+                            className="pl-10 border-2 border-gray-200 focus:border-blue-400"
                         />
                     </div>
                 </div>
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <Card>
+                    <Card className="border-2 border-blue-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
-                                    <MapPin className="w-6 h-6 text-green-600" />
+                                <div className="p-3 bg-blue-100 rounded-lg">
+                                    <MapPin className="w-6 h-6 text-blue-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{travelPlans?.length || 0}</p>
-                                    <p className="text-sm text-muted-foreground">Total Plans</p>
+                                    <p className="text-2xl font-bold text-gray-800">{travelPlans?.length || 0}</p>
+                                    <p className="text-sm text-gray-600">Total Plans</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="border-2 border-violet-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                                    <Calendar className="w-6 h-6 text-blue-600" />
+                                <div className="p-3 bg-violet-100 rounded-lg">
+                                    <Calendar className="w-6 h-6 text-violet-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">
+                                    <p className="text-2xl font-bold text-gray-800">
                                         {travelPlans?.filter((p) => new Date(p.endDate) >= new Date()).length || 0}
                                     </p>
-                                    <p className="text-sm text-muted-foreground">Active Plans</p>
+                                    <p className="text-sm text-gray-600">Active Plans</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="border-2 border-pink-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                                    <Users className="w-6 h-6 text-purple-600" />
+                                <div className="p-3 bg-pink-100 rounded-lg">
+                                    <Users className="w-6 h-6 text-pink-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">
+                                    <p className="text-2xl font-bold text-gray-800">
                                         {travelPlans?.reduce((acc, plan) => acc + plan.participants.length, 0) || 0}
                                     </p>
-                                    <p className="text-sm text-muted-foreground">Total Participants</p>
+                                    <p className="text-sm text-gray-600">Total Participants</p>
                                 </div>
                             </div>
                         </CardContent>
@@ -182,63 +182,65 @@ export default function AdminTravelPlansPage() {
 
                 {/* Travel Plans Grid */}
                 {filteredPlans && filteredPlans.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {filteredPlans.map((plan) => {
                             const isActive = new Date(plan.endDate) >= new Date();
 
                             return (
-                                <Card key={plan._id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                                <Card key={plan._id} className="border-2 border-gray-200 hover:border-blue-300 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                                     <div className={`h-2 bg-gradient-to-r ${isActive
-                                        ? "from-green-400 via-green-500 to-green-600"
-                                        : "from-gray-400 via-gray-500 to-gray-600"
+                                        ? "from-blue-400 via-violet-500 to-pink-600"
+                                        : "from-gray-300 via-gray-400 to-gray-500"
                                         }`} />
-                                    <CardHeader>
-                                        <div className="flex items-start justify-between">
+                                    <CardHeader className="pb-4">
+                                        <div className="flex flex-col">
                                             <div className="flex-1">
-                                                <CardTitle className="text-xl mb-2 flex items-center gap-2">
-                                                    <MapPin className="w-5 h-5 text-green-600" />
-                                                    {plan.destination.city}, {plan.destination.country}
-                                                </CardTitle>
-                                                <Badge variant={isActive ? "default" : "secondary"} className="mb-2">
+                                                <div className="flex items-start gap-2 mb-2">
+                                                    <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                                                    <CardTitle className="text-base font-semibold text-gray-800 line-clamp-2">
+                                                        {plan.destination.city}, {plan.destination.country}
+                                                    </CardTitle>
+                                                </div>
+                                                <Badge variant={isActive ? "default" : "secondary"} className="mb-2 text-xs">
                                                     {isActive ? "Active" : "Completed"}
                                                 </Badge>
-                                                <CardDescription className="line-clamp-2">
+                                                <CardDescription className="text-xs line-clamp-2">
                                                     {plan.description}
                                                 </CardDescription>
                                             </div>
                                         </div>
                                     </CardHeader>
-                                    <CardContent className="space-y-4">
+                                    <CardContent className="space-y-3 flex-1 flex flex-col">
                                         {/* Host Info */}
-                                        <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
-                                            <Avatar className="h-10 w-10">
+                                        <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                                            <Avatar className="h-8 w-8">
                                                 <AvatarImage src={plan.host.profileImage} />
-                                                <AvatarFallback className="bg-primary text-primary-foreground">
+                                                <AvatarFallback className="bg-gradient-to-br from-violet-500 to-blue-500 text-white text-sm">
                                                     {plan.host.fullName.charAt(0)}
                                                 </AvatarFallback>
                                             </Avatar>
-                                            <div>
-                                                <p className="text-sm font-medium">Hosted by {plan.host.fullName}</p>
-                                                <p className="text-xs text-muted-foreground">{plan.host.email}</p>
+                                            <div className="flex-1 min-w-0">
+                                                <p className="text-xs font-medium truncate">{plan.host.fullName}</p>
+                                                <p className="text-xs text-gray-500 truncate">{plan.host.email}</p>
                                             </div>
                                         </div>
 
                                         {/* Trip Details */}
-                                        <div className="grid grid-cols-2 gap-3">
-                                            <div className="flex items-center gap-2 text-sm">
-                                                <Calendar className="w-4 h-4 text-blue-600" />
-                                                <div>
-                                                    <p className="font-medium">Dates</p>
-                                                    <p className="text-xs text-muted-foreground">
+                                        <div className="space-y-2">
+                                            <div className="flex items-start gap-2 text-xs">
+                                                <Calendar className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="font-medium text-gray-700">Dates</p>
+                                                    <p className="text-xs text-gray-600 break-words">
                                                         {new Date(plan.startDate).toLocaleDateString()} - {new Date(plan.endDate).toLocaleDateString()}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-2 text-sm">
-                                                <DollarSign className="w-4 h-4 text-green-600" />
-                                                <div>
-                                                    <p className="font-medium">Budget</p>
-                                                    <p className="text-xs text-muted-foreground">
+                                            <div className="flex items-start gap-2 text-xs">
+                                                <DollarSign className="w-4 h-4 text-pink-600 flex-shrink-0 mt-0.5" />
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="font-medium text-gray-700">Budget</p>
+                                                    <p className="text-xs text-gray-600">
                                                         ${plan.budgetRange.min} - ${plan.budgetRange.max}
                                                     </p>
                                                 </div>
@@ -246,17 +248,17 @@ export default function AdminTravelPlansPage() {
                                         </div>
 
                                         {/* Categories and Participants */}
-                                        <div className="space-y-2">
-                                            <div className="flex items-center gap-2 flex-wrap">
-                                                <Badge variant="secondary">{plan.travelType}</Badge>
-                                                {plan.categories.slice(0, 2).map((category, index) => (
-                                                    <Badge key={index} variant="outline">{category}</Badge>
+                                        <div className="space-y-2 mt-auto">
+                                            <div className="flex items-center gap-1 flex-wrap">
+                                                <Badge variant="secondary" className="text-xs">{plan.travelType}</Badge>
+                                                {plan.categories.slice(0, 1).map((category, index) => (
+                                                    <Badge key={index} variant="outline" className="text-xs">{category}</Badge>
                                                 ))}
-                                                {plan.categories.length > 2 && (
-                                                    <Badge variant="outline">+{plan.categories.length - 2} more</Badge>
+                                                {plan.categories.length > 1 && (
+                                                    <Badge variant="outline" className="text-xs">+{plan.categories.length - 1}</Badge>
                                                 )}
                                             </div>
-                                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <div className="flex items-center gap-2 text-xs text-gray-600">
                                                 <Users className="w-4 h-4" />
                                                 <span>{plan.participants.length} {plan.participants.length === 1 ? 'participant' : 'participants'}</span>
                                             </div>
@@ -266,18 +268,19 @@ export default function AdminTravelPlansPage() {
                                         <Button
                                             onClick={() => handleDeleteClick(plan._id, `${plan.destination.city}, ${plan.destination.country}`)}
                                             disabled={isDeleting}
-                                            className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white disabled:opacity-50"
+                                            size="sm"
+                                            className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white disabled:opacity-50 mt-3"
                                             title="Delete this travel plan permanently"
                                         >
                                             {isDeleting ? (
                                                 <>
-                                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                    <Loader2 className="mr-2 h-3 w-3 animate-spin" />
                                                     Deleting...
                                                 </>
                                             ) : (
                                                 <>
-                                                    <Trash2 className="w-4 h-4 mr-2" />
-                                                    Delete Travel Plan
+                                                    <Trash2 className="w-3 h-3 mr-2" />
+                                                    Delete Plan
                                                 </>
                                             )}
                                         </Button>

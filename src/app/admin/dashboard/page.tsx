@@ -59,10 +59,10 @@ export default function AdminDashboard() {
                 {/* Header */}
                 <div className="mb-8 animate-fade-in">
                     <div className="flex items-center gap-3 mb-2">
-                        <Shield className="w-10 h-10 text-primary" />
-                        <H1 className="text-gradient-primary">Admin Dashboard</H1>
+                        <Shield className="w-10 h-10 text-violet-600" />
+                        <H1 className="bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">Admin Dashboard</H1>
                     </div>
-                    <BodyLarge className="text-muted-foreground">
+                    <BodyLarge className="text-gray-600">
                         Manage users and travel plans
                     </BodyLarge>
                 </div>
@@ -92,24 +92,103 @@ export default function AdminDashboard() {
                     />
                 </div>
 
+                {/* Stats Visualization */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <Card className="border-2 border-violet-100 shadow-lg hover:shadow-xl transition-all duration-300 card-hover" role="region" aria-label="User growth statistics">
+                        <CardHeader className="pb-4">
+                            <CardTitle className="text-lg font-semibold text-gray-800">User Growth</CardTitle>
+                            <CardDescription>Total users overview</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-sm font-medium text-gray-600">Total Users</span>
+                                        <span className="text-lg font-bold text-violet-600">{stats?.totalUsers || 0}</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-3">
+                                        <div
+                                            className="bg-gradient-to-r from-violet-500 to-blue-500 h-3 rounded-full transition-all duration-500"
+                                            style={{ width: '100%' }}
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-sm font-medium text-gray-600">Verified Users</span>
+                                        <span className="text-lg font-bold text-blue-600">{stats?.verifiedTravelers || 0}</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-3">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-500 to-violet-500 h-3 rounded-full transition-all duration-500"
+                                            style={{
+                                                width: stats?.totalUsers
+                                                    ? `${((stats.verifiedTravelers / stats.totalUsers) * 100)}%`
+                                                    : '0%'
+                                            }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="border-2 border-blue-100 shadow-lg hover:shadow-xl transition-all duration-300 card-hover" role="region" aria-label="Platform activity statistics">
+                        <CardHeader className="pb-4">
+                            <CardTitle className="text-lg font-semibold text-gray-800">Platform Activity</CardTitle>
+                            <CardDescription>Plans and engagement metrics</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-sm font-medium text-gray-600">Travel Plans</span>
+                                        <span className="text-lg font-bold text-blue-600">{stats?.totalTravelPlans || 0}</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-3">
+                                        <div
+                                            className="bg-gradient-to-r from-blue-500 to-pink-500 h-3 rounded-full transition-all duration-500"
+                                            style={{ width: '85%' }}
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span className="text-sm font-medium text-gray-600">Total Reviews</span>
+                                        <span className="text-lg font-bold text-pink-600">{stats?.totalReviews || 0}</span>
+                                    </div>
+                                    <div className="w-full bg-gray-200 rounded-full h-3">
+                                        <div
+                                            className="bg-gradient-to-r from-pink-500 to-violet-500 h-3 rounded-full transition-all duration-500"
+                                            style={{ width: '70%' }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+
                 {/* Management Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Card className="elevation-sm hover:elevation-lg transition-all">
+                    <Card className="border-2 border-violet-100 shadow-lg hover:shadow-xl transition-all duration-300 card-hover" role="region" aria-label="User management section">
                         <CardHeader>
                             <div className="flex items-center gap-3 mb-2">
-                                <Users className="w-8 h-8 text-blue-600" />
+                                <div className="p-2 bg-violet-100 rounded-lg">
+                                    <Users className="w-8 h-8 text-violet-600" />
+                                </div>
                                 <div>
-                                    <CardTitle className="text-2xl">User Management</CardTitle>
-                                    <CardDescription>View and manage all registered users</CardDescription>
+                                    <CardTitle className="text-xl font-semibold text-gray-800">User Management</CardTitle>
+                                    <CardDescription className="text-gray-600">View and manage all registered users</CardDescription>
                                 </div>
                             </div>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <p className="text-muted-foreground">
+                            <p className="text-gray-600">
                                 View user profiles, manage accounts, and monitor traveler activities.
                             </p>
                             <Link href="/admin/users">
-                                <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white">
+                                <Button className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                                     <Users className="w-4 h-4 mr-2" />
                                     Manage Users
                                 </Button>
@@ -117,22 +196,24 @@ export default function AdminDashboard() {
                         </CardContent>
                     </Card>
 
-                    <Card className="hover:shadow-lg transition-shadow">
+                    <Card className="border-2 border-blue-100 shadow-lg hover:shadow-xl transition-all duration-300 card-hover" role="region" aria-label="Travel plans management section">
                         <CardHeader>
                             <div className="flex items-center gap-3 mb-2">
-                                <MapPin className="w-8 h-8 text-green-600" />
+                                <div className="p-2 bg-blue-100 rounded-lg">
+                                    <MapPin className="w-8 h-8 text-blue-600" />
+                                </div>
                                 <div>
-                                    <CardTitle className="text-2xl">Travel Plans Management</CardTitle>
-                                    <CardDescription>View and manage all travel plans</CardDescription>
+                                    <CardTitle className="text-xl font-semibold text-gray-800">Travel Plans Management</CardTitle>
+                                    <CardDescription className="text-gray-600">View and manage all travel plans</CardDescription>
                                 </div>
                             </div>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <p className="text-muted-foreground">
+                            <p className="text-gray-600">
                                 Monitor travel plans, manage content, and ensure quality standards.
                             </p>
                             <Link href="/admin/travel-plans">
-                                <Button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white">
+                                <Button className="w-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                                     <MapPin className="w-4 h-4 mr-2" />
                                     Manage Travel Plans
                                 </Button>

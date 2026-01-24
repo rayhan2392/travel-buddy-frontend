@@ -51,24 +51,34 @@
   --card-foreground: 224 71.4% 4.1%;
   --popover: 0 0% 100%;
   --popover-foreground: 224 71.4% 4.1%;
+
+  /* PRIMARY - Violet (Brand Identity) */
   --primary: 262.1 83.3% 57.8%;
   --primary-foreground: 210 20% 98%;
-  --secondary: 220 14.3% 95.9%;
-  --secondary-foreground: 220.9 39.3% 11%;
+
+  /* SECONDARY - Blue (Trust & Professional) */
+  --secondary: 217 91% 60%;
+  --secondary-foreground: 210 20% 98%;
+
+  /* ACCENT - Pink/Rose (Energy & CTA) */
+  --accent: 330 81% 60%;
+  --accent-foreground: 210 20% 98%;
+
+  /* Neutral Colors */
   --muted: 220 14.3% 95.9%;
   --muted-foreground: 220 8.9% 46.1%;
-  --accent: 220 14.3% 95.9%;
-  --accent-foreground: 220.9 39.3% 11%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 20% 98%;
   --border: 220 13% 91%;
   --input: 220 13% 91%;
   --ring: 262.1 83.3% 57.8%;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
+
+  /* Chart Colors - Using our 3 primary colors */
+  --chart-1: 262.1 83.3% 57.8%; /* Violet */
+  --chart-2: 217 91% 60%; /* Blue */
+  --chart-3: 330 81% 60%; /* Pink */
+  --chart-4: 262.1 70% 45%; /* Dark Violet */
+  --chart-5: 217 91% 45%; /* Dark Blue */
 
   /* Semantic Colors */
   --success: 142 76% 36%;
@@ -107,24 +117,34 @@
   --card-foreground: 210 20% 98%;
   --popover: 224 71.4% 4.1%;
   --popover-foreground: 210 20% 98%;
+
+  /* PRIMARY - Violet (Brand Identity) - Slightly brighter for dark mode */
   --primary: 263.4 70% 50.4%;
   --primary-foreground: 210 20% 98%;
-  --secondary: 215 27.9% 16.9%;
+
+  /* SECONDARY - Blue (Trust & Professional) */
+  --secondary: 217 91% 65%;
   --secondary-foreground: 210 20% 98%;
+
+  /* ACCENT - Pink/Rose (Energy & CTA) */
+  --accent: 330 81% 65%;
+  --accent-foreground: 210 20% 98%;
+
+  /* Neutral Colors */
   --muted: 215 27.9% 16.9%;
   --muted-foreground: 217.9 10.6% 64.9%;
-  --accent: 215 27.9% 16.9%;
-  --accent-foreground: 210 20% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 20% 98%;
   --border: 215 27.9% 16.9%;
   --input: 215 27.9% 16.9%;
   --ring: 263.4 70% 50.4%;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
+
+  /* Chart Colors - Using our 3 primary colors */
+  --chart-1: 263.4 70% 50.4%; /* Violet */
+  --chart-2: 217 91% 65%; /* Blue */
+  --chart-3: 330 81% 65%; /* Pink */
+  --chart-4: 263.4 60% 40%; /* Dark Violet */
+  --chart-5: 217 91% 50%; /* Dark Blue */
   --sidebar: oklch(0.205 0 0);
 
   /* Semantic Colors - Dark Mode */
@@ -228,16 +248,20 @@
   }
 
   .elevation-md {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
   .elevation-lg {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
   .elevation-xl {
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
       0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
@@ -246,7 +270,8 @@
   }
 
   .elevation-hover:hover {
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15),
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.15),
       0 8px 10px -6px rgb(0 0 0 / 0.15);
   }
 }
@@ -282,6 +307,48 @@
 
   .animate-spin-slow {
     animation: spin 3s linear infinite;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s ease-out;
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSubtle 0.6s ease-out;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Smooth hover effects */
+  .hover-lift {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Card hover animations */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
   }
 
   @keyframes fadeIn {
@@ -320,5 +387,49 @@
     100% {
       background-position: 200% 0;
     }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceSubtle {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Focus visible styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 }

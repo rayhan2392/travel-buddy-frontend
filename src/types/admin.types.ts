@@ -1,4 +1,5 @@
 export interface AdminStats {
+    totalUsers: number;
     verifiedTravelers: number;
     totalTravelPlans: number;
     totalReviews: number;

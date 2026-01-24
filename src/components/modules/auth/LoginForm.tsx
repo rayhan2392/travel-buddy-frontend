@@ -16,7 +16,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { Plane, Loader2, Users, MapPin, Star } from "lucide-react";
+import { Plane, Loader2, Users, MapPin, Star, User } from "lucide-react";
 
 
 const loginSchema = z.object({
@@ -113,6 +113,45 @@ export function LoginForm() {
                                     "Sign In"
                                 )}
                             </Button>
+
+                            {/* Demo Login Buttons */}
+                            <div className="relative">
+                                <div className="absolute inset-0 flex items-center">
+                                    <span className="w-full border-t border-gray-300" />
+                                </div>
+                                <div className="relative flex justify-center text-xs uppercase">
+                                    <span className="bg-white px-2 text-muted-foreground">Or try demo accounts</span>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="w-full border-2 border-blue-300 hover:bg-blue-50 hover:border-blue-500 transition-all duration-200"
+                                    onClick={() => {
+                                        form.setValue("email", "mine@traveler.com");
+                                        form.setValue("password", "123456");
+                                    }}
+                                    disabled={isPending}
+                                >
+                                    <User className="mr-2 h-4 w-4" />
+                                    Demo User
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="w-full border-2 border-purple-300 hover:bg-purple-50 hover:border-purple-500 transition-all duration-200"
+                                    onClick={() => {
+                                        form.setValue("email", "super@admin.com");
+                                        form.setValue("password", "12345678");
+                                    }}
+                                    disabled={isPending}
+                                >
+                                    <Star className="mr-2 h-4 w-4" />
+                                    Demo Admin
+                                </Button>
+                            </div>
                         </form>
                     </Form>
 

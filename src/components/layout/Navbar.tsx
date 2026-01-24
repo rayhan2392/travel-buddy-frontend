@@ -25,13 +25,17 @@ import {
     Star,
     Compass,
     Crown,
-    FileText
+    FileText,
+    Info,
+    Phone,
+    HelpCircle
 } from "lucide-react";
 
 export function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { user, isAuthenticated, logout } = useAuth();
     const router = useRouter();
+
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -55,6 +59,7 @@ export function Navbar() {
                     <Link
                         href="/"
                         className="flex items-center space-x-3 group transition-transform hover:scale-105 duration-300"
+                        aria-label="Travel Buddy Home"
                     >
                         <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
                             <Plane className="w-6 h-6 text-white transform -rotate-45" />
@@ -72,22 +77,69 @@ export function Navbar() {
                     <div className="hidden md:flex items-center space-x-3">
                         <Link href="/explore">
                             <Button
-                                variant="outline"
-                                className="text-base font-semibold border-2 border-blue-300 bg-white/80 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200 group shadow-sm hover:shadow-md"
+                                variant="ghost"
+                                className="text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                                aria-label="Explore travelers"
                             >
-                                <Compass className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                                <Compass className="w-4 h-4 mr-2" aria-hidden="true" />
                                 Explore
                             </Button>
                         </Link>
                         <Link href="/find-buddy">
                             <Button
-                                variant="outline"
-                                className="text-base font-semibold border-2 border-violet-300 bg-white/80 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all duration-200 group shadow-sm hover:shadow-md"
+                                variant="ghost"
+                                className="text-base font-medium text-gray-700 hover:text-violet-600 hover:bg-violet-50 transition-all duration-200"
+                                aria-label="Find a travel buddy"
                             >
-                                <User className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                                <User className="w-4 h-4 mr-2" aria-hidden="true" />
                                 Find Buddy
                             </Button>
                         </Link>
+                        {!isAuthenticated && (
+                            <>
+                                <Link href="/about">
+                                    <Button
+                                        variant="ghost"
+                                        className="text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                                    >
+                                        <Info className="w-4 h-4 mr-2" />
+                                        About
+                                    </Button>
+                                </Link>
+                                <Link href="/contact">
+                                    <Button
+                                        variant="ghost"
+                                        className="text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                                    >
+                                        <Phone className="w-4 h-4 mr-2" />
+                                        Contact
+                                    </Button>
+                                </Link>
+                            </>
+                        )}
+                        {isAuthenticated && (
+                            <>
+                                <Link href="/pricing">
+                                    <Button
+                                        variant="ghost"
+                                        className="text-base font-medium text-gray-700 hover:text-violet-600 hover:bg-violet-50 transition-all duration-200"
+                                    >
+                                        <Crown className="w-4 h-4 mr-2" />
+                                        Pricing
+                                    </Button>
+                                </Link>
+                                <Link href="/help">
+                                    <Button
+                                        variant="ghost"
+                                        className="text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+                                    >
+                                        <HelpCircle className="w-4 h-4 mr-2" />
+                                        Help
+                                    </Button>
+                                </Link>
+                            </>
+                        )}
+
 
                         {!isAuthenticated ? (
                             <Link href="/login">
@@ -244,25 +296,28 @@ export function Navbar() {
                     <button
                         onClick={toggleMobileMenu}
                         className="md:hidden p-2.5 rounded-xl hover:bg-blue-50 transition-all duration-200 group"
-                        aria-label="Toggle menu"
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="mobile-menu"
                     >
                         {isMobileMenuOpen ? (
-                            <X className="w-6 h-6 text-gray-700 group-hover:text-blue-600 group-hover:rotate-90 transition-all duration-300" />
+                            <X className="w-6 h-6 text-gray-700 group-hover:text-blue-600 group-hover:rotate-90 transition-all duration-300" aria-hidden="true" />
                         ) : (
-                            <Menu className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors duration-200" />
+                            <Menu className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors duration-200" aria-hidden="true" />
                         )}
                     </button>
                 </div>
 
                 {/* Mobile Navigation */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden py-6 space-y-3 border-t bg-white/95 animate-in slide-in-from-top-2 duration-300 rounded-b-2xl shadow-lg">
+                    <div id="mobile-menu" className="md:hidden py-6 space-y-3 border-t bg-white/95 animate-in slide-in-from-top-2 duration-300 rounded-b-2xl shadow-lg" role="navigation" aria-label="Mobile navigation">
                         <Link href="/explore" onClick={toggleMobileMenu}>
                             <Button
                                 variant="ghost"
                                 className="w-full justify-start text-base font-medium hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
+                                aria-label="Explore travelers"
                             >
-                                <Compass className="w-5 h-5 mr-3" />
+                                <Compass className="w-5 h-5 mr-3" aria-hidden="true" />
                                 Explore
                             </Button>
                         </Link>
@@ -275,6 +330,50 @@ export function Navbar() {
                                 Find Buddy
                             </Button>
                         </Link>
+                        {!isAuthenticated && (
+                            <>
+                                <Link href="/about" onClick={toggleMobileMenu}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-base font-medium hover:bg-gray-100 transition-all duration-200"
+                                    >
+                                        <Info className="w-5 h-5 mr-3" />
+                                        About
+                                    </Button>
+                                </Link>
+                                <Link href="/contact" onClick={toggleMobileMenu}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-base font-medium hover:bg-gray-100 transition-all duration-200"
+                                    >
+                                        <Phone className="w-5 h-5 mr-3" />
+                                        Contact
+                                    </Button>
+                                </Link>
+                            </>
+                        )}
+                        {isAuthenticated && (
+                            <>
+                                <Link href="/pricing" onClick={toggleMobileMenu}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-base font-medium hover:bg-gray-100 transition-all duration-200"
+                                    >
+                                        <Crown className="w-5 h-5 mr-3" />
+                                        Pricing
+                                    </Button>
+                                </Link>
+                                <Link href="/help" onClick={toggleMobileMenu}>
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full justify-start text-base font-medium hover:bg-gray-100 transition-all duration-200"
+                                    >
+                                        <HelpCircle className="w-5 h-5 mr-3" />
+                                        Help
+                                    </Button>
+                                </Link>
+                            </>
+                        )}
 
                         {!isAuthenticated ? (
                             <Link href="/login" onClick={toggleMobileMenu}>
