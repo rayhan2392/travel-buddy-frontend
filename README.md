@@ -16,6 +16,7 @@ Travel Buddy is a full-stack web application designed to connect travelers with 
 ## 🛠️ Tech Stack
 
 **Frontend:**
+
 - Next.js 16 (with Turbopack)
 - React 19
 - TypeScript 5
@@ -26,18 +27,22 @@ Travel Buddy is a full-stack web application designed to connect travelers with 
 - Radix UI Components
 
 **State Management:**
+
 - React Context API (Authentication)
 - TanStack Query (Server State)
 
 **Form Handling:**
+
 - React Hook Form
 - Zod (Validation)
 
 **Authentication:**
+
 - JWT (JSON Web Tokens)
 - HTTP-only Cookies
 
 **Deployment:**
+
 - Vercel (Recommended)
 
 ## ✨ Key Features
@@ -73,23 +78,27 @@ NEXT_PUBLIC_API_URL=https://travel-buddy-backend-omega.vercel.app/api
 ### Steps
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd travel-buddy-frontend
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment variables**
+
    ```bash
    cp .env.example .env.local
    # Edit .env.local with your backend API URL
    ```
 
 4. **Run development server**
+
    ```bash
    npm run dev
    ```
@@ -102,10 +111,12 @@ NEXT_PUBLIC_API_URL=https://travel-buddy-backend-omega.vercel.app/api
 ### Demo Credentials
 
 **User Account:**
+
 - Email: `mine@traveler.com`
 - Password: `123456`
 
 **Admin Account:**
+
 - Email: `super@admin.com`
 - Password: `12345678`
 
@@ -508,20 +519,10 @@ Our design system follows modern principles with a focus on accessibility, consi
 
 ```css
 /* Primary Colors */
---blue-600: #2563eb
---purple-600: #9333ea
---violet-600: #7c3aed
-
-/* Secondary Colors */
---blue-500: #3b82f6
---purple-500: #a855f7
---violet-500: #8b5cf6
-
-/* Semantic Colors */
---success: #16a34a (Green)
---warning: #f59e0b (Amber)
---error: #dc2626 (Red)
---info: #0284c7 (Blue)
+--blue-600: #2563eb --purple-600: #9333ea --violet-600: #7c3aed
+  /* Secondary Colors */ --blue-500: #3b82f6 --purple-500: #a855f7
+  --violet-500: #8b5cf6 /* Semantic Colors */ --success: #16a34a (Green)
+  --warning: #f59e0b (Amber) --error: #dc2626 (Red) --info: #0284c7 (Blue);
 ```
 
 ### Design Patterns
@@ -833,7 +834,7 @@ axiosInstance.interceptors.response.use(
       window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 ```
 
@@ -1043,7 +1044,6 @@ Travel Buddy is optimized for deployment on Vercel, the platform built by the cr
    ```
 
 2. **Import to Vercel**
-
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import your GitHub repository
@@ -1051,7 +1051,6 @@ Travel Buddy is optimized for deployment on Vercel, the platform built by the cr
    - Deploy!
 
 3. **Environment Variables**
-
    - Add all variables from `.env.local`
    - Vercel will automatically use them
 
@@ -1127,195 +1126,3 @@ docker run -p 3000:3000 travel-buddy-frontend
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions from the community! Here's how you can help:
-
-### Development Workflow
-
-1. **Fork the repository**
-
-   ```bash
-   # Click "Fork" on GitHub
-   git clone https://github.com/YOUR_USERNAME/travel-buddy-frontend.git
-   cd travel-buddy-frontend
-   ```
-
-2. **Create a feature branch**
-
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-
-3. **Make your changes**
-
-   - Write clean, readable code
-   - Follow existing code style
-   - Add comments for complex logic
-   - Update documentation if needed
-
-4. **Test your changes**
-
-   ```bash
-   npm run lint
-   npm run build
-   ```
-
-5. **Commit with conventional commits**
-
-   ```bash
-   git commit -m "feat: add amazing feature"
-   ```
-
-   **Commit Types**:
-
-   - `feat`: New feature
-   - `fix`: Bug fix
-   - `docs`: Documentation changes
-   - `style`: Code style changes (formatting)
-   - `refactor`: Code refactoring
-   - `test`: Adding tests
-   - `chore`: Build process or tooling changes
-
-6. **Push and create Pull Request**
-
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-
-   Then open a Pull Request on GitHub with:
-
-   - Clear description of changes
-   - Screenshots (if UI changes)
-   - Related issue numbers
-
-### Code Style Guidelines
-
-- **TypeScript**: Use strong typing, avoid `any`
-- **Components**: Use functional components with hooks
-- **File naming**:
-  - Components: `PascalCase.tsx`
-  - Utilities: `camelCase.ts`
-  - Types: `kebab-case.types.ts`
-- **Imports**: Group and order (React → Third-party → Local)
-- **Comments**: Write clear, concise comments for complex logic
-
-### Pull Request Checklist
-
-- [ ] Code follows project style guidelines
-- [ ] Self-review completed
-- [ ] Comments added for complex code
-- [ ] Documentation updated
-- [ ] No console warnings or errors
-- [ ] ESLint passes (`npm run lint`)
-- [ ] Build succeeds (`npm run build`)
-- [ ] Tested on multiple screen sizes
-
-### Reporting Issues
-
-Found a bug? Have a feature request?
-
-1. Check if issue already exists
-2. Create a new issue with:
-   - Clear, descriptive title
-   - Steps to reproduce (for bugs)
-   - Expected vs actual behavior
-   - Screenshots if applicable
-   - Environment details (OS, browser, etc.)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2026 Travel Buddy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
-
----
-
-## 👥 Team
-
-### Core Contributors
-
-- **Frontend Lead** - [@rayhan2392](https://github.com/rayhan2392)
-- **UI/UX Design** - Design Team
-- **Backend Integration** - Backend Team
-
-### Special Thanks
-
-- All contributors who have helped improve this project
-- The open-source community for amazing tools
-- Beta testers for valuable feedback
-
----
-
-## 📞 Support & Contact
-
-### Get Help
-
-- **Documentation**: [Full Documentation](#)
-- **Issues**: [GitHub Issues](https://github.com/rayhan2392/travel-buddy-frontend/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rayhan2392/travel-buddy-frontend/discussions)
-- **Email**: support@travelbuddy.com
-
-### Stay Connected
-
-- **Website**: [travelbuddy.com](#)
-- **Twitter**: [@travelbuddy](#)
-- **LinkedIn**: [Travel Buddy](#)
-- **Blog**: [blog.travelbuddy.com](#)
-
----
-
-## 🙏 Acknowledgments
-
-This project wouldn't be possible without these amazing technologies:
-
-- **[Next.js](https://nextjs.org/)** - The React Framework for Production
-- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces
-- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript with syntax for types
-- **[Tailwind CSS](https://tailwindcss.com/)** - A utility-first CSS framework
-- **[Shadcn/ui](https://ui.shadcn.com/)** - Beautifully designed components
-- **[TanStack Query](https://tanstack.com/query)** - Powerful asynchronous state management
-- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible component primitives
-- **[Lucide Icons](https://lucide.dev/)** - Beautiful & consistent icon toolkit
-- **[Vercel](https://vercel.com/)** - The platform for frontend developers
-- **[Axios](https://axios-http.com/)** - Promise based HTTP client
-
----
-
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/rayhan2392/travel-buddy-frontend?style=social)
-![GitHub forks](https://img.shields.io/github/forks/rayhan2392/travel-buddy-frontend?style=social)
-![GitHub issues](https://img.shields.io/github/issues/rayhan2392/travel-buddy-frontend)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/rayhan2392/travel-buddy-frontend)
-![GitHub last commit](https://img.shields.io/github/last-commit/rayhan2392/travel-buddy-frontend)
-
----
-
-<div align="center">
-  <p><strong>Built with ❤️ by the Travel Buddy Team</strong></p>
-  <p>
-    <a href="#-table-of-contents">Back to Top ↑</a>
-  </p>
-  <p>⭐ Star us on GitHub — it helps!</p>
-</div>
