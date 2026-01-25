@@ -68,10 +68,10 @@ export function Footer() {
                         <h3 className="text-white font-bold text-lg mb-4">Support</h3>
                         <ul className="space-y-3">
                             {[
-                                { label: "Help Center", href: "#" },
-                                { label: "Safety Tips", href: "#" },
-                                { label: "Terms of Service", href: "#" },
-                                { label: "Privacy Policy", href: "#" }
+                                { label: "Help Center", href: "/help" },
+                                { label: "About Us", href: "/about" },
+                                { label: "Terms of Service", href: "/terms" },
+                                { label: "Privacy Policy", href: "/privacy" }
                             ].map((link, index) => (
                                 <li key={index}>
                                     <Link
@@ -118,14 +118,14 @@ export function Footer() {
                             © {new Date().getFullYear()} Travel Buddy. All rights reserved.
                         </p>
                         <div className="flex gap-6 text-sm">
-                            <Link href="#" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
+                            <Link href="/terms" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
                                 Terms
                             </Link>
-                            <Link href="#" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
+                            <Link href="/privacy" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
                                 Privacy
                             </Link>
-                            <Link href="#" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
-                                Cookies
+                            <Link href="/contact" className="text-gray-500 hover:text-violet-400 transition-colors duration-200">
+                                Contact
                             </Link>
                         </div>
                     </div>

@@ -4,6 +4,8 @@ import { WhyChooseUsSection } from "@/components/modules/home/WhyChooseUsSection
 import { PopularDestinationsSection } from "@/components/modules/home/PopularDestinationsSection";
 import { TestimonialsSection } from "@/components/modules/home/TestimonialsSection";
 import { StatsSection } from "@/components/modules/home/StatsSection";
+import { NewsletterSection } from "@/components/modules/home/NewsletterSection";
+import { FAQSection } from "@/components/modules/home/FAQSection";
 import { CTASection } from "@/components/modules/home/CTASection";
 import { Footer } from "@/components/layout/Footer";
 import { Metadata } from "next";
@@ -43,6 +45,8 @@ export default function Home() {
       <PopularDestinationsSection />
       <TestimonialsSection />
       <StatsSection />
+      <NewsletterSection />
+      <FAQSection />
       <CTASection />
       <Footer />
     </div>

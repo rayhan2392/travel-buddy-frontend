@@ -1,111 +1,167 @@
-<div align="center">
-  <h1>🧳 Travel Buddy</h1>
-  <p><strong>Your Ultimate Travel Companion Platform</strong></p>
-  
-  <p>A modern, feature-rich web application that connects travelers worldwide. Built with Next.js 16, React 19, and TypeScript, featuring a stunning glass-morphism UI, real-time matching, and comprehensive travel planning tools.</p>
+# Travel Buddy – Connect with Fellow Travelers Worldwide
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.0.8-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+> A modern travel companion platform connecting travelers for shared adventures and memorable experiences.
 
-[Live Demo](#) • [Documentation](#) • [Report Bug](#) • [Request Feature](#)
+## 📖 Project Overview
 
-</div>
+Travel Buddy is a full-stack web application designed to connect travelers with compatible companions for their journeys. Whether you're a solo adventurer seeking company, someone looking to share travel costs, or simply wanting to meet like-minded explorers, Travel Buddy makes finding the perfect travel buddy effortless. The platform features comprehensive travel planning tools, real-time matching, secure authentication, and an intuitive admin dashboard for managing the community.
 
----
+## 🔗 Live Demo & Repository
 
----
+- **Frontend Live:** [Coming Soon]
+- **Backend Live:** [https://travel-buddy-backend-omega.vercel.app](https://travel-buddy-backend-omega.vercel.app)
+- **Frontend Repository:** [Current Repository]
+- **Backend Repository:** [https://github.com/rayhan2392/travel-buddy-backend](https://github.com/rayhan2392/travel-buddy-backend)
 
-## 📋 Table of Contents
+## 🛠️ Tech Stack
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Design System](#-design-system)
-- [Architecture](#-architecture)
-- [API Integration](#-api-integration)
-- [Environment Variables](#-environment-variables)
-- [Scripts](#-scripts)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
-- [License](#-license)
+**Frontend:**
 
----
+- Next.js 16 (with Turbopack)
+- React 19
+- TypeScript 5
+- Tailwind CSS 4
+- TanStack React Query
+- Axios
+- Sonner (Toast Notifications)
+- Radix UI Components
 
-## 🌟 Overview
+**State Management:**
 
-**Travel Buddy** is a next-generation travel companion platform designed to connect travelers, facilitate trip planning, and build a vibrant community of adventure seekers. The platform features a modern glass-morphism UI with smooth animations, real-time data synchronization, and an intuitive user experience.
+- React Context API (Authentication)
+- TanStack Query (Server State)
 
-### What Makes Travel Buddy Special?
+**Form Handling:**
 
-- **🎨 Modern UI/UX**: Glass-morphism design with gradient themes and smooth animations
-- **⚡ Lightning Fast**: Built with Next.js 16 and Turbopack for optimal performance
-- **🔒 Secure**: JWT-based authentication with role-based access control
-- **📱 Responsive**: Seamless experience across all devices
-- **♿ Accessible**: WCAG compliant with keyboard navigation support
-- **🌐 Real-time**: Live updates and instant matching using TanStack Query
+- React Hook Form
+- Zod (Validation)
 
----
+**Authentication:**
+
+- JWT (JSON Web Tokens)
+- HTTP-only Cookies
+
+**Deployment:**
+
+- Vercel (Recommended)
 
 ## ✨ Key Features
 
-### 🔐 Authentication & Authorization
+- **Role-based Authentication** – Secure JWT authentication with User and Admin roles
+- **User Profiles** – Comprehensive profiles with bio, interests, travel preferences, and ratings
+- **Travel Plan Creation** – Create detailed travel plans with destinations, dates, budget, and categories
+- **Smart Matching** – Find compatible travel buddies based on preferences and interests
+- **Advanced Filtering** – Search and filter travelers by location, verification status, and more
+- **Join Requests** – Request to join travel plans with host approval system
+- **Reviews & Ratings** – Post-trip review system with star ratings
+- **Admin Dashboard** – Complete admin panel with user management, travel plan oversight, and analytics
+- **Responsive Design** – Seamless experience across desktop, tablet, and mobile devices
+- **Accessibility** – ARIA labels, keyboard navigation, and focus management
 
-- Secure JWT-based authentication
-- Role-based access control (User, Admin)
-- Protected routes and API calls
-- Persistent user sessions with cookies
+## 🔑 Environment Variables
 
-### 👤 User Management
+Create a `.env.local` file in the root directory with the following variables:
 
-- Comprehensive user profiles with avatars
-- Bio, interests, and travel preferences
-- Visited countries tracking
-- Rating and review system
-- Profile editing and customization
+```env
+NEXT_PUBLIC_API_URL=https://travel-buddy-backend-omega.vercel.app/api
+```
 
-### 🗺️ Travel Planning
+**Note:** Replace the API URL with your backend endpoint if using a different deployment.
 
-- Create and manage travel plans
-- Destination, dates, and budget configuration
-- Travel type categorization (Solo, Family, Friends)
-- Rich itinerary descriptions
-- Plan visibility controls
+## 🚀 Installation & Setup
 
-### 🔍 Discovery & Matching
+### Prerequisites
 
-- Advanced search filters (destination, dates, interests)
-- Smart travel buddy matching
-- User discovery and exploration
-- Real-time plan browsing
+- Node.js 18+ installed
+- npm or yarn package manager
 
-### ⭐ Reviews & Ratings
+### Steps
 
-- Post-trip review system
-- Star ratings (1-5)
-- Review management (edit/delete)
-- Average rating display on profiles
+1. **Clone the repository**
 
-### 👨‍💼 Admin Dashboard
+   ```bash
+   git clone <repository-url>
+   cd travel-buddy-frontend
+   ```
 
-- User management interface
-- Travel plan oversight
-- System statistics and analytics
-- Content moderation tools
+2. **Install dependencies**
 
-### 🎨 Modern UI/UX
+   ```bash
+   npm install
+   ```
 
-- Responsive design for all devices
-- Dark mode support
-- Smooth animations and transitions
-- Skeleton loading states
-- Toast notifications
-- Custom gradient themes
-- Shadcn/ui component library
+3. **Configure environment variables**
+
+   ```bash
+   cp .env.example .env.local
+   # Edit .env.local with your backend API URL
+   ```
+
+4. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open in browser**
+   ```
+   Navigate to http://localhost:3000
+   ```
+
+### Demo Credentials
+
+**User Account:**
+
+- Email: `mine@traveler.com`
+- Password: `123456`
+
+**Admin Account:**
+
+- Email: `super@admin.com`
+- Password: `12345678`
+
+## 📜 Available Scripts
+
+- `npm run dev` – Start development server with Turbopack
+- `npm run build` – Create production build
+- `npm start` – Start production server
+- `npm run lint` – Run ESLint
+- `npm run lint:fix` – Fix ESLint errors automatically
+
+## 🎯 Future Improvements
+
+- **Real-time Chat** – In-app messaging between matched travel buddies
+- **Social Login** – Google and Facebook OAuth integration
+- **Payment Integration** – Secure payment processing for verified memberships
+- **Trip Itinerary Builder** – Detailed day-by-day itinerary planning tools
+- **Photo Gallery** – Share travel photos and experiences
+- **Push Notifications** – Real-time alerts for new matches and messages
+- **Multi-language Support** – Internationalization for global users
+- **Mobile App** – Native iOS and Android applications
+- **AI-Powered Recommendations** – Smart travel buddy suggestions based on preferences
+
+## 👨‍💻 Author & Contact
+
+**Shawn**  
+Full-Stack Developer
+
+- GitHub: [@shawn](https://github.com/shawn)
+- LinkedIn: [Shawn](https://linkedin.com/in/shawn)
+- Email: shawn@example.com
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by Shawn</p>
+  <p>⭐ Star this repository if you find it helpful!</p>
+</div>
+
 - Tailwind CSS styling
 
 ## ✨ Key Features
@@ -463,20 +519,10 @@ Our design system follows modern principles with a focus on accessibility, consi
 
 ```css
 /* Primary Colors */
---blue-600: #2563eb
---purple-600: #9333ea
---violet-600: #7c3aed
-
-/* Secondary Colors */
---blue-500: #3b82f6
---purple-500: #a855f7
---violet-500: #8b5cf6
-
-/* Semantic Colors */
---success: #16a34a (Green)
---warning: #f59e0b (Amber)
---error: #dc2626 (Red)
---info: #0284c7 (Blue)
+--blue-600: #2563eb --purple-600: #9333ea --violet-600: #7c3aed
+  /* Secondary Colors */ --blue-500: #3b82f6 --purple-500: #a855f7
+  --violet-500: #8b5cf6 /* Semantic Colors */ --success: #16a34a (Green)
+  --warning: #f59e0b (Amber) --error: #dc2626 (Red) --info: #0284c7 (Blue);
 ```
 
 ### Design Patterns
@@ -788,7 +834,7 @@ axiosInstance.interceptors.response.use(
       window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 ```
 
@@ -998,7 +1044,6 @@ Travel Buddy is optimized for deployment on Vercel, the platform built by the cr
    ```
 
 2. **Import to Vercel**
-
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import your GitHub repository
@@ -1006,7 +1051,6 @@ Travel Buddy is optimized for deployment on Vercel, the platform built by the cr
    - Deploy!
 
 3. **Environment Variables**
-
    - Add all variables from `.env.local`
    - Vercel will automatically use them
 
@@ -1082,195 +1126,3 @@ docker run -p 3000:3000 travel-buddy-frontend
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions from the community! Here's how you can help:
-
-### Development Workflow
-
-1. **Fork the repository**
-
-   ```bash
-   # Click "Fork" on GitHub
-   git clone https://github.com/YOUR_USERNAME/travel-buddy-frontend.git
-   cd travel-buddy-frontend
-   ```
-
-2. **Create a feature branch**
-
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-
-3. **Make your changes**
-
-   - Write clean, readable code
-   - Follow existing code style
-   - Add comments for complex logic
-   - Update documentation if needed
-
-4. **Test your changes**
-
-   ```bash
-   npm run lint
-   npm run build
-   ```
-
-5. **Commit with conventional commits**
-
-   ```bash
-   git commit -m "feat: add amazing feature"
-   ```
-
-   **Commit Types**:
-
-   - `feat`: New feature
-   - `fix`: Bug fix
-   - `docs`: Documentation changes
-   - `style`: Code style changes (formatting)
-   - `refactor`: Code refactoring
-   - `test`: Adding tests
-   - `chore`: Build process or tooling changes
-
-6. **Push and create Pull Request**
-
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-
-   Then open a Pull Request on GitHub with:
-
-   - Clear description of changes
-   - Screenshots (if UI changes)
-   - Related issue numbers
-
-### Code Style Guidelines
-
-- **TypeScript**: Use strong typing, avoid `any`
-- **Components**: Use functional components with hooks
-- **File naming**:
-  - Components: `PascalCase.tsx`
-  - Utilities: `camelCase.ts`
-  - Types: `kebab-case.types.ts`
-- **Imports**: Group and order (React → Third-party → Local)
-- **Comments**: Write clear, concise comments for complex logic
-
-### Pull Request Checklist
-
-- [ ] Code follows project style guidelines
-- [ ] Self-review completed
-- [ ] Comments added for complex code
-- [ ] Documentation updated
-- [ ] No console warnings or errors
-- [ ] ESLint passes (`npm run lint`)
-- [ ] Build succeeds (`npm run build`)
-- [ ] Tested on multiple screen sizes
-
-### Reporting Issues
-
-Found a bug? Have a feature request?
-
-1. Check if issue already exists
-2. Create a new issue with:
-   - Clear, descriptive title
-   - Steps to reproduce (for bugs)
-   - Expected vs actual behavior
-   - Screenshots if applicable
-   - Environment details (OS, browser, etc.)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2026 Travel Buddy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
-
----
-
-## 👥 Team
-
-### Core Contributors
-
-- **Frontend Lead** - [@rayhan2392](https://github.com/rayhan2392)
-- **UI/UX Design** - Design Team
-- **Backend Integration** - Backend Team
-
-### Special Thanks
-
-- All contributors who have helped improve this project
-- The open-source community for amazing tools
-- Beta testers for valuable feedback
-
----
-
-## 📞 Support & Contact
-
-### Get Help
-
-- **Documentation**: [Full Documentation](#)
-- **Issues**: [GitHub Issues](https://github.com/rayhan2392/travel-buddy-frontend/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rayhan2392/travel-buddy-frontend/discussions)
-- **Email**: support@travelbuddy.com
-
-### Stay Connected
-
-- **Website**: [travelbuddy.com](#)
-- **Twitter**: [@travelbuddy](#)
-- **LinkedIn**: [Travel Buddy](#)
-- **Blog**: [blog.travelbuddy.com](#)
-
----
-
-## 🙏 Acknowledgments
-
-This project wouldn't be possible without these amazing technologies:
-
-- **[Next.js](https://nextjs.org/)** - The React Framework for Production
-- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces
-- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript with syntax for types
-- **[Tailwind CSS](https://tailwindcss.com/)** - A utility-first CSS framework
-- **[Shadcn/ui](https://ui.shadcn.com/)** - Beautifully designed components
-- **[TanStack Query](https://tanstack.com/query)** - Powerful asynchronous state management
-- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible component primitives
-- **[Lucide Icons](https://lucide.dev/)** - Beautiful & consistent icon toolkit
-- **[Vercel](https://vercel.com/)** - The platform for frontend developers
-- **[Axios](https://axios-http.com/)** - Promise based HTTP client
-
----
-
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/rayhan2392/travel-buddy-frontend?style=social)
-![GitHub forks](https://img.shields.io/github/forks/rayhan2392/travel-buddy-frontend?style=social)
-![GitHub issues](https://img.shields.io/github/issues/rayhan2392/travel-buddy-frontend)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/rayhan2392/travel-buddy-frontend)
-![GitHub last commit](https://img.shields.io/github/last-commit/rayhan2392/travel-buddy-frontend)
-
----
-
-<div align="center">
-  <p><strong>Built with ❤️ by the Travel Buddy Team</strong></p>
-  <p>
-    <a href="#-table-of-contents">Back to Top ↑</a>
-  </p>
-  <p>⭐ Star us on GitHub — it helps!</p>
-</div>

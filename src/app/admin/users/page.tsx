@@ -71,11 +71,12 @@ export default function AdminUsersPage() {
 
     return (
         <AdminLayout>
-            <div className="container mx-auto px-4 py-8 max-w-7xl">{/* Back Button */}
+            <div className="container mx-auto px-4 py-8 max-w-7xl">
+                {/* Back Button */}
                 <Button
                     onClick={() => router.push("/admin/dashboard")}
                     variant="ghost"
-                    className="mb-6"
+                    className="mb-6 hover:bg-violet-50"
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Dashboard
@@ -84,12 +85,12 @@ export default function AdminUsersPage() {
                 {/* Header */}
                 <div className="mb-8">
                     <div className="flex items-center gap-3 mb-2">
-                        <Users className="w-10 h-10 text-blue-600" />
-                        <H1 className="text-gradient-primary">
+                        <Users className="w-10 h-10 text-violet-600" />
+                        <H1 className="bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
                             User Management
                         </H1>
                     </div>
-                    <BodyLarge className="text-muted-foreground">
+                    <BodyLarge className="text-gray-600">
                         View and manage all registered users
                     </BodyLarge>
                 </div>
@@ -97,156 +98,153 @@ export default function AdminUsersPage() {
                 {/* Search Bar */}
                 <div className="mb-6">
                     <div className="relative max-w-md">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                         <Input
                             type="text"
                             placeholder="Search users by name, email, or location..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-10"
+                            className="pl-10 border-2 border-gray-200 focus:border-violet-400"
                         />
                     </div>
                 </div>
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <Card>
+                    <Card className="border-2 border-violet-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                                    <Users className="w-6 h-6 text-blue-600" />
+                                <div className="p-3 bg-violet-100 rounded-lg">
+                                    <Users className="w-6 h-6 text-violet-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{users?.length || 0}</p>
-                                    <p className="text-sm text-muted-foreground">Total Users</p>
+                                    <p className="text-2xl font-bold text-gray-800">{users?.length || 0}</p>
+                                    <p className="text-sm text-gray-600">Total Users</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="border-2 border-blue-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
-                                    <UserIcon className="w-6 h-6 text-green-600" />
+                                <div className="p-3 bg-blue-100 rounded-lg">
+                                    <UserIcon className="w-6 h-6 text-blue-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{users?.filter((u) => u.role === "user").length || 0}</p>
-                                    <p className="text-sm text-muted-foreground">Travelers</p>
+                                    <p className="text-2xl font-bold text-gray-800">{users?.filter((u) => u.role === "user").length || 0}</p>
+                                    <p className="text-sm text-gray-600">Travelers</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="border-2 border-pink-100 shadow-md hover:shadow-lg transition-all">
                         <CardContent className="pt-6">
                             <div className="flex items-center gap-3">
-                                <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                                    <Shield className="w-6 h-6 text-purple-600" />
+                                <div className="p-3 bg-pink-100 rounded-lg">
+                                    <Shield className="w-6 h-6 text-pink-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{users?.filter((u) => u.role === "admin").length || 0}</p>
-                                    <p className="text-sm text-muted-foreground">Admins</p>
+                                    <p className="text-2xl font-bold text-gray-800">{users?.filter((u) => u.role === "admin").length || 0}</p>
+                                    <p className="text-sm text-gray-600">Admins</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
                 </div>
 
-                {/* Users Table */}
+                {/* Users Grid */}
                 {filteredUsers && filteredUsers.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-4">
-                        {filteredUsers.map((userData) => (
-                            <Card key={userData._id} className="hover:shadow-lg transition-shadow">
-                                <CardContent className="p-6">
-                                    <div className="flex items-start gap-4">
-                                        {/* Avatar */}
-                                        <Avatar className="h-16 w-16">
-                                            <AvatarImage src={userData.profileImage} />
-                                            <AvatarFallback className="bg-primary text-primary-foreground text-xl">
-                                                {userData.fullName.charAt(0)}
-                                            </AvatarFallback>
-                                        </Avatar>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">{filteredUsers.map((userData) => (
+                        <Card key={userData._id} className="border-2 border-gray-200 hover:border-violet-300 shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                            <CardContent className="p-6 flex-1 flex flex-col">
+                                <div className="flex flex-col items-center text-center mb-4">
+                                    {/* Avatar */}
+                                    <Avatar className="h-20 w-20 mb-3 ring-2 ring-violet-200">
+                                        <AvatarImage src={userData.profileImage} />
+                                        <AvatarFallback className="bg-gradient-to-br from-violet-500 to-blue-500 text-white text-xl font-semibold">
+                                            {userData.fullName.charAt(0)}
+                                        </AvatarFallback>
+                                    </Avatar>
 
-                                        {/* User Info */}
-                                        <div className="flex-1">
-                                            <div className="flex items-start justify-between mb-2">
-                                                <div>
-                                                    <div className="flex items-center gap-2">
-                                                        <h3 className="text-xl font-semibold">{userData.fullName}</h3>
-                                                        <Badge variant={userData.role === "admin" ? "destructive" : "default"}>
-                                                            {userData.role}
-                                                        </Badge>
-                                                        {userData.isVerified && (
-                                                            <Badge variant="secondary" className="bg-blue-100 text-blue-700">
-                                                                Verified
-                                                            </Badge>
-                                                        )}
-                                                    </div>
-                                                    <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                                                        <div className="flex items-center gap-1">
-                                                            <Mail className="w-4 h-4" />
-                                                            {userData.email}
-                                                        </div>
-                                                        {userData.currentLocation && (
-                                                            <div className="flex items-center gap-1">
-                                                                <MapPin className="w-4 h-4" />
-                                                                {userData.currentLocation}
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-
-                                                {/* Rating */}
-                                                {userData.averageRating !== undefined && (
-                                                    <div className="flex items-center gap-1 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1 rounded-full">
-                                                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                                        <span className="font-semibold">{userData.averageRating.toFixed(1)}</span>
-                                                        <span className="text-xs text-muted-foreground">({userData.ratingCount})</span>
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            {/* Bio */}
-                                            {userData.bio && (
-                                                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{userData.bio}</p>
-                                            )}
-
-                                            {/* Interests and Countries */}
-                                            <div className="flex flex-wrap gap-2 mb-3">
-                                                {userData.interests?.slice(0, 3).map((interest, index) => (
-                                                    <Badge key={index} variant="outline" className="text-xs">
-                                                        {interest}
-                                                    </Badge>
-                                                ))}
-                                                {userData.interests && userData.interests.length > 3 && (
-                                                    <Badge variant="outline" className="text-xs">
-                                                        +{userData.interests.length - 3} more
-                                                    </Badge>
-                                                )}
-                                            </div>
-
-                                            {/* Visited Countries */}
-                                            {userData.visitedCountries && userData.visitedCountries.length > 0 && (
-                                                <p className="text-sm text-muted-foreground">
-                                                    <span className="font-medium">Visited:</span> {userData.visitedCountries.slice(0, 3).join(", ")}
-                                                    {userData.visitedCountries.length > 3 && ` +${userData.visitedCountries.length - 3} more`}
-                                                </p>
-                                            )}
-
-                                            {/* Actions */}
-                                            <div className="flex gap-2 mt-4">
-                                                <Link href={`/profile/${userData._id}`}>
-                                                    <Button variant="outline" size="sm">
-                                                        View Profile
-                                                    </Button>
-                                                </Link>
-                                            </div>
+                                    {/* User Info */}
+                                    <div className="w-full">
+                                        <div className="flex items-center justify-center gap-2 mb-2 flex-wrap">
+                                            <h3 className="text-lg font-semibold text-gray-800 truncate max-w-full">{userData.fullName}</h3>
                                         </div>
+                                        <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
+                                            <Badge variant={userData.role === "admin" ? "destructive" : "default"} className="text-xs">
+                                                {userData.role}
+                                            </Badge>
+                                            {userData.isVerified && (
+                                                <Badge className="bg-blue-100 text-blue-700 text-xs">
+                                                    Verified
+                                                </Badge>
+                                            )}
+                                        </div>
+
+                                        {/* Rating */}
+                                        {userData.averageRating !== undefined && (
+                                            <div className="flex items-center justify-center gap-1 bg-yellow-50 px-3 py-1 rounded-full mb-3 w-fit mx-auto">
+                                                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                                                <span className="font-semibold text-sm">{userData.averageRating.toFixed(1)}</span>
+                                                <span className="text-xs text-gray-600">({userData.ratingCount})</span>
+                                            </div>
+                                        )}
                                     </div>
-                                </CardContent>
-                            </Card>
-                        ))}
+                                </div>
+
+                                {/* Email and Location */}
+                                <div className="space-y-2 mb-4 text-sm">
+                                    <div className="flex items-center gap-2 text-gray-600 justify-center">
+                                        <Mail className="w-4 h-4 flex-shrink-0" />
+                                        <span className="truncate text-xs">{userData.email}</span>
+                                    </div>
+                                    {userData.currentLocation && (
+                                        <div className="flex items-center gap-2 text-gray-600 justify-center">
+                                            <MapPin className="w-4 h-4 flex-shrink-0" />
+                                            <span className="truncate text-xs">{userData.currentLocation}</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Bio */}
+                                {userData.bio && (
+                                    <p className="text-xs text-gray-600 mb-3 line-clamp-2 text-center">{userData.bio}</p>
+                                )}
+
+                                {/* Interests */}
+                                <div className="flex flex-wrap gap-1 justify-center mb-4 mt-auto">
+                                    {userData.interests?.slice(0, 2).map((interest, index) => (
+                                        <Badge key={index} variant="outline" className="text-xs">
+                                            {interest}
+                                        </Badge>
+                                    ))}
+                                    {userData.interests && userData.interests.length > 2 && (
+                                        <Badge variant="outline" className="text-xs">
+                                            +{userData.interests.length - 2}
+                                        </Badge>
+                                    )}
+                                </div>
+
+                                {/* Visited Countries */}
+                                {userData.visitedCountries && userData.visitedCountries.length > 0 && (
+                                    <p className="text-xs text-gray-600 mb-4 text-center">
+                                        <span className="font-medium">Visited:</span> {userData.visitedCountries.slice(0, 2).join(", ")}
+                                        {userData.visitedCountries.length > 2 && ` +${userData.visitedCountries.length - 2}`}
+                                    </p>
+                                )}
+
+                                {/* Actions */}
+                                <Link href={`/profile/${userData._id}`} className="w-full mt-auto">
+                                    <Button variant="outline" size="sm" className="w-full border-2 border-violet-200 hover:bg-violet-50 hover:border-violet-400 transition-all">
+                                        View Profile
+                                    </Button>
+                                </Link>
+                            </CardContent>
+                        </Card>
+                    ))}
                     </div>
                 ) : (
                     <Card>
